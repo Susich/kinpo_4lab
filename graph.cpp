@@ -1,134 +1,164 @@
 #include "graph.h"
 #include <QRegularExpression>
 #include <QRegularExpressionMatchIterator>
+#include <QQueue>
 #include <QSet>
 
-Graph::Graph(const QString& dotData) {
-    // Регулярное выражение для поиска ребер вида: node1 -> node2 [label="dist,weight,height"]
-    QRegularExpression edgeRegex("(\\w+)\\s*->\\s*(\\w+)\\s*\\[label=\"([^\"]+)\"\\]");
-    QRegularExpressionMatchIterator it = edgeRegex.globalMatch(dotData);
-
-    // В соответствии с требованиями используем флаг вместо break
-    bool dataParsed = false;
-    if (it.hasNext()) {
-        dataParsed = true;
+Graph::Graph(const QString& dotContent, QSet<Error>& errors) {
+    if (!dotContent.trimmed().startsWith("graph")) {
+        errors.insert(Error(ErrorType::DotSyntaxError, "Ошибка: файл должен начинаться со слова «graph»."));
     }
+
+    // Ищем строки вида: 1 -- 2 [length=10.5, max_mass=20, max_height=5];
+    QRegularExpression edgeRegex("(\\d+)\\s*--\\s*(\\d+)\\s*\\[([^\\]]+)\\]");
+    QRegularExpressionMatchIterator it = edgeRegex.globalMatch(dotContent);
 
     while (it.hasNext()) {
         QRegularExpressionMatch match = it.next();
-        QString u = match.captured(1);
-        QString v = match.captured(2);
-        QStringList params = match.captured(3).split(',');
+        int u = match.captured(1).toInt();
+        int v = match.captured(2).toInt();
+        QString attrsStr = match.captured(3);
 
-        if (params.size() != 3) {
-            throw Error(ErrorType::ParseError, "Некорректные параметры ребра (ожидается dist,weight,height): " + match.captured(0));
-        }
+        // Парсинг атрибутов
+        double length = -1, maxMass = -1, maxHeight = -1;
+        QStringList attrs = attrsStr.split(',');
 
-        bool okD, okW, okH;
-        Edge edge;
-        edge.targetNode = v;
-        edge.distance = params[0].toDouble(&okD);
-        edge.maxWeight = params[1].toDouble(&okW);
-        edge.maxHeight = params[2].toDouble(&okH);
+        bool hasLen = false, hasMass = false, hasHeight = false;
 
-        if (!okD || !okW || !okH) {
-            throw Error(ErrorType::ParseError, "Ошибка числового формата в ребре: " + match.captured(0));
-        }
-
-        adjacencyList[u].append(edge);
-    }
-
-    if (!dataParsed) {
-        throw Error(ErrorType::ParseError, "В DOT-файле не найдено ни одного валидного описания ребра.");
-    }
-}
-
-QPair<RouteStatus, QStringList> Graph::findShortestPath(const Truck& truck) {
-    // 1. Пытаемся найти путь с учетом ограничений
-    QPair<double, QStringList> filteredResult = runDijkstra(truck.startNode, truck.endNode, truck.weight, truck.height);
-
-    RouteStatus finalStatus = RouteStatus::NoRouteExists;
-    QStringList finalPath;
-
-    if (filteredResult.first >= 0) {
-        finalStatus = RouteStatus::Success;
-        finalPath = filteredResult.second;
-    } else {
-        // 2. Если не нашли, ищем вообще любой путь (без ограничений)
-        QPair<double, QStringList> simpleResult = runDijkstra(truck.startNode, truck.endNode, 0, 0);
-
-        if (simpleResult.first >= 0) {
-            finalStatus = RouteStatus::RouteImpossible;
-        } else {
-            finalStatus = RouteStatus::NoRouteExists;
-        }
-    }
-
-    return qMakePair(finalStatus, finalPath);
-}
-
-QPair<double, QStringList> Graph::runDijkstra(const QString& start, const QString& end, double weightLimit, double heightLimit) {
-    QMap<QString, double> distances;
-    QMap<QString, QString> predecessors;
-    QSet<QString> visited;
-
-    distances[start] = 0;
-
-    bool targetReached = false;
-    // Цикл продолжается, пока есть непосещенные узлы и цель не достигнута
-    while (!targetReached) {
-        QString current;
-        double minDistance = -1;
-
-        // Поиск узла с минимальным расстоянием (вместо break используем логику выбора)
-        QMapIterator<QString, double> i(distances);
-        while (i.hasNext()) {
-            i.next();
-            if (!visited.contains(i.key()) && (minDistance < 0 || i.value() < minDistance)) {
-                minDistance = i.value();
-                current = i.key();
+        for (int i = 0; i < attrs.size(); ++i) {
+            QString attr = attrs[i].trimmed();
+            if (attr.startsWith("length=")) {
+                length = attr.mid(7).toDouble(&hasLen);
+            } else if (attr.startsWith("max_mass=")) {
+                maxMass = attr.mid(9).toDouble(&hasMass);
+            } else if (attr.startsWith("max_height=")) {
+                maxHeight = attr.mid(11).toDouble(&hasHeight);
             }
         }
 
-        // Если не нашли подходящий узел или дошли до конца
-        if (current.isEmpty() || current == end) {
+        if (!hasLen) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «length».").arg(u).arg(v)));
+        if (!hasMass) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «max_mass».").arg(u).arg(v)));
+        if (!hasHeight) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «max_height».").arg(u).arg(v)));
+
+        if (hasLen && (length < 1 || length > 100)) errors.insert(Error(ErrorType::OutOfRange, QString("Ошибка на участке %1--%2: длина дороги выходит за рамки лимита (1 - 100).").arg(u).arg(v)));
+
+        // Если город не совпадает сам с собой (не петля) и атрибуты валидны
+        if (u != v && hasLen && hasMass && hasHeight && length >= 1 && length <= 100) {
+            addEdge(u, v, length, maxMass, maxHeight);
+        }
+    }
+}
+
+void Graph::addEdge(int from, int to, double len, double mMass, double mHeight) {
+    adjacencyMap[from][to] = Edge(len, mMass, mHeight);
+    adjacencyMap[to][from] = Edge(len, mMass, mHeight); // Неориентированный граф
+}
+
+RouteStatus Graph::findShortestPath(int startNode, int endNode, const Truck& truck, QList<int>& path, double& totalLen, double& requiredMass, double& requiredHeight) {
+    if (!adjacencyMap.contains(startNode)) return RouteStatus::NoRouteExists;
+    if (!adjacencyMap.contains(endNode)) return RouteStatus::NoRouteExists;
+
+    double pMass = 0, pHeight = 0;
+
+    // Ищем путь с учетом грузовика
+    if (runDijkstra(startNode, endNode, path, totalLen, pMass, pHeight, &truck)) {
+        return RouteStatus::PathFound;
+    }
+
+    // Если не нашли, ищем любой путь
+    if (runDijkstra(startNode, endNode, path, totalLen, requiredMass, requiredHeight, nullptr)) {
+        return RouteStatus::RouteImpossible;
+    }
+
+    return RouteStatus::NoRouteExists;
+}
+
+bool Graph::runDijkstra(int startNode, int endNode, QList<int>& path, double& totalLen, double& pathMass, double& pathHeight, const Truck* truck) {
+    QMap<int, double> distances;
+    QMap<int, int> previous;
+    QSet<int> visited;
+
+    QList<int> nodes = adjacencyMap.keys();
+    for (int i = 0; i < nodes.size(); ++i) {
+        distances[nodes[i]] = -1; // -1 означает бесконечность
+    }
+    distances[startNode] = 0;
+
+    bool targetReached = false;
+
+    while (!targetReached) {
+        int u = -1;
+        double minDistance = -1;
+
+        // Поиск узла с минимальным расстоянием
+        for (int i = 0; i < nodes.size(); ++i) {
+            int node = nodes[i];
+            if (!visited.contains(node) && distances[node] != -1) {
+                if (minDistance == -1 || distances[node] < minDistance) {
+                    minDistance = distances[node];
+                    u = node;
+                }
+            }
+        }
+
+        if (u == -1 || u == endNode) {
             targetReached = true;
         }
 
         if (!targetReached) {
-            visited.insert(current);
+            visited.insert(u);
+            QMap<int, Edge> neighbors = adjacencyMap.value(u);
+            QList<int> adjacentNodes = neighbors.keys();
 
-            // Релаксация ребер
-            QList<Edge> edges = adjacencyList.value(current);
-            for (int j = 0; j < edges.size(); ++j) {
-                Edge e = edges[j];
+            for (int i = 0; i < adjacentNodes.size(); ++i) {
+                int v = adjacentNodes[i];
+                Edge e = neighbors.value(v);
 
-                // Проверка габаритов (если лимиты заданы)
-                bool passWeight = (weightLimit <= 0 || e.maxWeight >= weightLimit);
-                bool passHeight = (heightLimit <= 0 || e.maxHeight >= heightLimit);
+                bool pass = true;
+                if (truck != nullptr) {
+                    if (truck->mass > e.maxMass || truck->height > e.maxHeight) {
+                        pass = false;
+                    }
+                }
 
-                if (passWeight && passHeight) {
-                    double newDist = distances[current] + e.distance;
-                    if (!distances.contains(e.targetNode) || newDist < distances[e.targetNode]) {
-                        distances[e.targetNode] = newDist;
-                        predecessors[e.targetNode] = current;
+                if (pass) {
+                    double newDist = distances[u] + e.length;
+                    if (distances[v] == -1 || newDist < distances[v]) {
+                        distances[v] = newDist;
+                        previous[v] = u;
                     }
                 }
             }
         }
     }
 
-    // Сборка пути
-    QStringList path;
-    double totalDist = -1;
-    if (distances.contains(end)) {
-        totalDist = distances[end];
-        QString step = end;
-        while (!step.isEmpty()) {
-            path.prepend(step);
-            step = predecessors.value(step);
+    if (!previous.contains(endNode) && startNode != endNode) {
+        return false;
+    }
+
+    // Восстановление пути
+    path.clear();
+    int curr = endNode;
+    bool pathFinished = false;
+
+    pathMass = -1;
+    pathHeight = -1;
+
+    while (!pathFinished) {
+        path.prepend(curr);
+        if (curr == startNode) {
+            pathFinished = true;
+        } else {
+            int prev = previous[curr];
+            Edge e = adjacencyMap[prev][curr];
+
+            if (pathMass == -1 || e.maxMass < pathMass) pathMass = e.maxMass;
+            if (pathHeight == -1 || e.maxHeight < pathHeight) pathHeight = e.maxHeight;
+
+            curr = prev;
         }
     }
 
-    return qMakePair(totalDist, path);
+    totalLen = distances[endNode];
+    return true;
 }
