@@ -2,137 +2,75 @@
 #define DATATYPES_H
 
 #include <QString>
-#include <exception>
-#include <string>
+#include <QSet>
+#include <QHash>
 
 /**
  * @file datatypes.h
- * @author Сапунков А.Р (ПрИн-266)
- * @brief Заголовочный файл с определениями базовых типов данных, структур и класса ошибок.
+ * @author Сапунков А.Р.
+ * @brief Описание структур данных согласно Внутренней спецификации.
  */
 
-/**
- * @enum ErrorType
- * @brief Перечисление возможных типов ошибок в программе.
- */
+// Перечисление системных ошибок
 enum class ErrorType {
-    FileOpenError,    ///< Ошибка при открытии файла (чтение/запись)
-    ParseError,       ///< Ошибка синтаксического анализа (некорректный DOT или параметры)
-    GraphError,       ///< Ошибки, связанные с логикой графа (например, несуществующие узлы)
-    InvalidArgument   ///< Неверно заданные аргументы
+    NoError,            // ошибок нет
+    InputFileNotFound,  // указанный входной файл не существует
+    OutputCreateFail,   // невозможно создать выходной файл
+    NotANumber,         // параметр не является числом
+    OutOfRange,         // число вне диапазона реальных физических ограничений
+    DotSyntaxError      // ошибка структуры DOT-файла
 };
 
-/**
- * @enum RouteStatus
- * @brief Перечисление статусов поиска маршрута (для логики Дейкстры).
- */
+// Перечисление статусов поиска пути
 enum class RouteStatus {
-    Success,          ///< Маршрут успешно найден с учетом габаритов и массы
-    RouteImpossible,  ///< Маршрут существует, но грузовик не проходит по габаритам/массе
-    NoRouteExists     ///< Маршрут между пунктами в принципе не существует
+    PathFound,          // кратчайший путь успешно найден
+    NoRouteExists,      // физического пути между пунктами нет вообще
+    RouteImpossible     // путь есть, но грузовик не проходит по габаритам
 };
 
-/**
- * @struct Edge
- * @brief Структура, описывающая ребро графа (дорогу между пунктами).
- */
-struct Edge {
-    QString targetNode;  ///< Название целевого пункта
-    double distance;     ///< Длина пути (вес ребра)
-    double maxWeight;    ///< Максимально допустимая масса грузовика (в тоннах)
-    double maxHeight;    ///< Максимально допустимая высота грузовика (в метрах)
-};
-
-/**
- * @struct Truck
- * @brief Структура, описывающая параметры грузовика и точки его маршрута.
- */
-struct Truck {
-    QString startNode;   ///< Начальный пункт отправления
-    QString endNode;     ///< Конечный пункт назначения
-    double weight;       ///< Фактическая масса грузовика
-    double height;       ///< Фактическая высота грузовика
-};
-
-/**
- * @class Error
- * @brief Класс для обработки исключений. Наследуется от std::exception.
- * Содержит детальную информацию об ошибке, включая позиционирование в файле.
- */
-class Error : public std::exception {
-private:
-    ErrorType type;       ///< Тип возникшей ошибки
-    QString details;      ///< Детальное описание причины
-    int line;             ///< Номер строки, где произошла ошибка (-1 если неизвестно)
-    int column;           ///< Номер столбца, где произошла ошибка (-1 если неизвестно)
-    std::string message;  ///< Сформированное сообщение для метода what()
-
+// Класс для хранения и генерации ошибок
+class Error {
 public:
-    /**
-     * @brief Конструктор класса Error
-     * @param errorType Тип ошибки
-     * @param errorDetails Подробное текстовое описание
-     * @param errorLine Строка (по умолчанию -1)
-     * @param errorColumn Столбец (по умолчанию -1)
-     */
-    Error(ErrorType errorType, const QString& errorDetails, int errorLine = -1, int errorColumn = -1)
-        : type(errorType), details(errorDetails), line(errorLine), column(errorColumn) {
+    ErrorType type;
+    QString errorDetail;
 
-        QString typeStr;
-        switch (type) {
-            case ErrorType::FileOpenError: typeStr = "Ошибка открытия файла"; break;
-            case ErrorType::ParseError: typeStr = "Ошибка синтаксического анализа"; break;
-            case ErrorType::GraphError: typeStr = "Ошибка графа"; break;
-            case ErrorType::InvalidArgument: typeStr = "Неверный аргумент"; break;
-            default: typeStr = "Неизвестная ошибка"; break;
-        }
+    Error() : type(ErrorType::NoError), errorDetail("") {}
+    Error(ErrorType t, const QString& detail) : type(t), errorDetail(detail) {}
 
-        QString fullMessage = QString("[%1] %2").arg(typeStr, details);
-
-        // Формирование строки с позицией, если она указана
-        if (line != -1) {
-            fullMessage += QString(" (Строка: %1").arg(line);
-            if (column != -1) {
-                fullMessage += QString(", Столбец: %1").arg(column);
-            }
-            fullMessage += ")";
-        }
-
-        // Сохраняем как std::string, чтобы безопасно возвращать C-строку в what()
-        message = fullMessage.toStdString();
+    // Метод возврата готового сообщения
+    QString generateErrorMessage() const {
+        if (type == ErrorType::NoError) return "";
+        return errorDetail;
     }
 
-    /**
-     * @brief Переопределенный метод стандартного исключения
-     * @return C-строка с полным описанием ошибки
-     */
-    const char* what() const noexcept override {
-        return message.c_str();
+    // Оператор сравнения (нужен для QSet)
+    bool operator==(const Error& other) const {
+        return type == other.type && errorDetail == other.errorDetail;
     }
-
-    /**
-     * @brief Получить тип ошибки
-     * @return ErrorType
-     */
-    ErrorType getType() const { return type; }
-
-    /**
-     * @brief Получить детали ошибки
-     * @return QString
-     */
-    QString getDetails() const { return details; }
-
-    /**
-     * @brief Получить номер строки ошибки
-     * @return int
-     */
-    int getLine() const { return line; }
-
-    /**
-     * @brief Получить номер столбца ошибки
-     * @return int
-     */
-    int getColumn() const { return column; }
 };
+
+// Хэш-функция (нужна для работы QSet<Error>)
+inline uint qHash(const Error& key, uint seed = 0) {
+    return qHash(static_cast<int>(key.type), seed) ^ qHash(key.errorDetail, seed);
+}
+
+// Описание дороги
+struct Edge {
+    double length;
+    double maxMass;
+    double maxHeight;
+
+    Edge() : length(0.0), maxMass(0.0), maxHeight(0.0) {}
+    Edge(double l, double m, double h) : length(l), maxMass(m), maxHeight(h) {}
+};
+
+// Описание габаритов грузовика
+struct Truck {
+    double mass;
+    double height;
+};
+
+// Предварительное объявление класса Graph для функции generateDotRoute
+class Graph;
 
 #endif // DATATYPES_H
