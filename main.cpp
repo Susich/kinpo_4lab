@@ -1,10 +1,13 @@
 #include <QCoreApplication>
 #include <QTextStream>
-#include <iostream>
-#include <clocale>
 #include "datatypes.h"
 #include "utils.h"
 #include "graph.h"
+
+// Подключаем API Windows для настройки кодировки консоли
+#ifdef Q_OS_WIN
+#include <windows.h>
+#endif
 
 /**
  * @file main.cpp
@@ -14,10 +17,19 @@
 
 int main(int argc, char *argv[]) {
     QCoreApplication app(argc, argv);
-    std::setlocale(LC_ALL, "Russian");
+
+    // Принудительно ставим консоли Windows кодировку UTF-8 (65001)
+#ifdef Q_OS_WIN
+    SetConsoleOutputCP(65001);
+#endif
+
+    // Настраиваем потоки вывода Qt
+    QTextStream qout(stdout);
+    QTextStream qerr(stderr);
 
     if (argc < 4) {
-        std::cerr << "Ошибка: Недостаточно аргументов. Использование: <program> <map.dot> <truck.txt> <result.dot>" << std::endl;
+        qerr << "Ошибка: Недостаточно аргументов. Использование: <program> <map.dot> <truck.txt> <result.dot>\n";
+        qerr.flush();
         return 1;
     }
 
@@ -29,7 +41,8 @@ int main(int argc, char *argv[]) {
     QString truckContent;
     Error err = readFile(truckFile, truckContent);
     if (err.type != ErrorType::NoError) {
-        std::cerr << err.generateErrorMessage().toStdString() << std::endl;
+        qerr << err.generateErrorMessage() << "\n";
+        qerr.flush();
         return 1;
     }
 
@@ -37,7 +50,8 @@ int main(int argc, char *argv[]) {
     int startNode, endNode;
     err = parseTruckData(truckContent, truck, startNode, endNode);
     if (err.type != ErrorType::NoError) {
-        std::cerr << err.generateErrorMessage().toStdString() << std::endl;
+        qerr << err.generateErrorMessage() << "\n";
+        qerr.flush();
         return 1;
     }
 
@@ -45,7 +59,8 @@ int main(int argc, char *argv[]) {
     QString mapContent;
     err = readFile(mapFile, mapContent);
     if (err.type != ErrorType::NoError) {
-        std::cerr << err.generateErrorMessage().toStdString() << std::endl;
+        qerr << err.generateErrorMessage() << "\n";
+        qerr.flush();
         return 1;
     }
 
@@ -55,8 +70,9 @@ int main(int argc, char *argv[]) {
 
     if (!errors.isEmpty()) {
         for (const Error& e : errors) {
-            std::cerr << e.generateErrorMessage().toStdString() << std::endl;
+            qerr << e.generateErrorMessage() << "\n";
         }
+        qerr.flush();
         return 1;
     }
 
@@ -67,12 +83,14 @@ int main(int argc, char *argv[]) {
 
     // 5. Обработка результатов
     if (status == RouteStatus::NoRouteExists) {
-        std::cerr << "Маршрут не существует: пункты " << startNode << " и " << endNode << " никак не соединены дорогами." << std::endl;
+        qerr << "Маршрут не существует: пункты " << startNode << " и " << endNode << " никак не соединены дорогами.\n";
+        qerr.flush();
         return 1;
     } else if (status == RouteStatus::RouteImpossible) {
-        std::cerr << "Маршрут невозможен: требуется для проезда масса <= " << requiredMass
-                  << ", высота <= " << requiredHeight << ". Ваш автомобиль: масса = "
-                  << truck.mass << ", высота = " << truck.height << "." << std::endl;
+        qerr << "Маршрут невозможен: требуется для проезда масса <= " << requiredMass
+             << ", высота <= " << requiredHeight << ". Ваш автомобиль: масса = "
+             << truck.mass << ", высота = " << truck.height << ".\n";
+        qerr.flush();
         return 1;
     }
 
@@ -81,10 +99,12 @@ int main(int argc, char *argv[]) {
     err = writeToFile(outputFile, resultDot);
 
     if (err.type != ErrorType::NoError) {
-        std::cerr << err.generateErrorMessage().toStdString() << std::endl;
+        qerr << err.generateErrorMessage() << "\n";
+        qerr.flush();
         return 1;
     }
 
-    std::cout << "Успех! Маршрут найден и сохранен в файл: " << outputFile.toStdString() << std::endl;
+    qout << "Успех! Маршрут найден и сохранен в файл: " << outputFile << "\n";
+    qout.flush();
     return 0;
 }

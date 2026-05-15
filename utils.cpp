@@ -25,6 +25,7 @@ Error writeToFile(const QString& filename, const QString& content) {
     }
 
     QTextStream out(&file);
+    out.setCodec("UTF-8");
     out << content;
     file.close();
 
