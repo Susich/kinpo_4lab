@@ -1,0 +1,24 @@
+\doxysection{utils.\+h}
+\hypertarget{utils_8h_source}{}\label{utils_8h_source}\doxymbox{\hyperlink{utils_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ UTILS\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ UTILS\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{datatypes_8h}{datatypes.h}}"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00012\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_graph}{Graph}};}
+\DoxyCodeLine{00014\ }
+\DoxyCodeLine{00021\ \doxymbox{\hyperlink{class_error}{Error}}\ \doxymbox{\hyperlink{utils_8h_a47226af2e1d69957bc806f2214312539}{readFile}}(\textcolor{keyword}{const}\ QString\&\ filename,\ QString\&\ content);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00030\ \doxymbox{\hyperlink{class_error}{Error}}\ \doxymbox{\hyperlink{utils_8h_afab9cc5b150b064e6b5509fc61137f42}{writeToFile}}(\textcolor{keyword}{const}\ QString\&\ filename,\ \textcolor{keyword}{const}\ QString\&\ content);}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00041\ \doxymbox{\hyperlink{class_error}{Error}}\ \doxymbox{\hyperlink{utils_8h_ac6185196658e30b99418585bb1de5812}{parseTruckData}}(\textcolor{keyword}{const}\ QString\&\ content,\ \doxymbox{\hyperlink{struct_truck}{Truck}}\&\ truck,\ \textcolor{keywordtype}{int}\&\ startNode,\ \textcolor{keywordtype}{int}\&\ endNode);}
+\DoxyCodeLine{00042\ }
+\DoxyCodeLine{00054\ QString\ \doxymbox{\hyperlink{utils_8h_a128fbd4200520ce5b9131de696d9122e}{generateDotRoute}}(\textcolor{keyword}{const}\ \doxymbox{\hyperlink{class_graph}{Graph}}\&\ graph,\ \textcolor{keyword}{const}\ QList<int>\&\ path,\ \textcolor{keywordtype}{double}\ totalLen,}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{RouteStatus}}\ status,\ \textcolor{keyword}{const}\ QString\&\ errorText\ =\ \textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{00056\ }
+\DoxyCodeLine{00057\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ UTILS\_H}}
+
+\end{DoxyCode}

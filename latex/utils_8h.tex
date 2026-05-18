@@ -1,0 +1,182 @@
+\doxysection{Файл utils.\+h}
+\hypertarget{utils_8h}{}\label{utils_8h}\index{utils.h@{utils.h}}
+
+
+Декларация утилитных функций ввода-\/вывода, парсинга и генерации отчетов.  
+
+
+{\ttfamily \+\#include $<$QString$>$}\newline
+{\ttfamily \+\#include "{}datatypes.\+h"{}}\newline
+Граф включаемых заголовочных файлов для utils.\+h:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{utils_8h__incl}
+\end{center}
+\end{figure}
+Граф файлов, в которые включается этот файл:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=206pt]{utils_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_error}{Error}} \doxymbox{\hyperlink{utils_8h_a47226af2e1d69957bc806f2214312539}{read\+File}} (const QString \&filename, QString \&content)
+\begin{DoxyCompactList}\small\item\em Читает текстовый файл с диска в строку \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_error}{Error}} \doxymbox{\hyperlink{utils_8h_afab9cc5b150b064e6b5509fc61137f42}{write\+To\+File}} (const QString \&filename, const QString \&content)
+\begin{DoxyCompactList}\small\item\em Сохраняет переданную строку в текстовый файл на диск \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_error}{Error}} \doxymbox{\hyperlink{utils_8h_ac6185196658e30b99418585bb1de5812}{parse\+Truck\+Data}} (const QString \&content, \doxymbox{\hyperlink{struct_truck}{Truck}} \&truck, int \&start\+Node, int \&end\+Node)
+\begin{DoxyCompactList}\small\item\em Выполняет синтаксический анализ и валидацию файла параметров автомобиля \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{utils_8h_a128fbd4200520ce5b9131de696d9122e}{generate\+Dot\+Route}} (const \doxymbox{\hyperlink{class_graph}{Graph}} \&graph, const QList$<$ int $>$ \&path, double total\+Len, \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status}} status, const QString \&error\+Text="{}"{})
+\begin{DoxyCompactList}\small\item\em Формирует итоговый текст выходного файла в формате языка DOT. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Декларация утилитных функций ввода-\/вывода, парсинга и генерации отчетов. 
+
+\begin{DoxyAuthor}{Автор}
+Сапунков А.\+Р. 
+\end{DoxyAuthor}
+
+
+\label{utils_8h_doc-func-members}
+\Hypertarget{utils_8h_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{utils_8h_a128fbd4200520ce5b9131de696d9122e}\index{utils.h@{utils.h}!generateDotRoute@{generateDotRoute}}
+\index{generateDotRoute@{generateDotRoute}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{generateDotRoute()}{generateDotRoute()}}
+{\footnotesize\ttfamily \label{utils_8h_a128fbd4200520ce5b9131de696d9122e} 
+QString generate\+Dot\+Route (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_graph}{Graph}} \&}]{graph}{, }\item[{const QList$<$ int $>$ \&}]{path}{, }\item[{double}]{total\+Len}{, }\item[{\doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status}}}]{status}{, }\item[{const QString \&}]{error\+Text}{}\end{DoxyParamCaption})}
+
+
+
+Формирует итоговый текст выходного файла в формате языка DOT. 
+
+Функция генерации выходной строки на языке описания графов DOT.
+
+Генерирует граф, добавляет блок информации (длина или текст ошибки) и динамически подсвечивает ребра маршрута красным цветом. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em graph} & Ссылка на объект исходного графа дорожной сети \\
+\hline
+\doxymbox{\texttt{in}}  & {\em path} & Список пунктов, входящих в кратчайший маршрут \\
+\hline
+\doxymbox{\texttt{in}}  & {\em total\+Len} & Вычисленная суммарная длина пути \\
+\hline
+\doxymbox{\texttt{in}}  & {\em status} & Финальный статус поиска (влияет на тип информационной плашки) \\
+\hline
+\doxymbox{\texttt{in}}  & {\em error\+Text} & Текст обнаруженной ошибки (используется, если статус не равен Path\+Found) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+QString Готовая валидная строка на языке DOT для визуализации графа
+\end{DoxyReturn}
+Формирует итоговый текст выходного файла в формате языка DOT. \texorpdfstring{$<$}{<} Преобразование обычного переноса в формат, понятный Graphviz
+
+\texorpdfstring{$<$}{<} Защитная инициализация для пустого графаГраф вызовов:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=338pt]{utils_8h_a128fbd4200520ce5b9131de696d9122e_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=249pt]{utils_8h_a128fbd4200520ce5b9131de696d9122e_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{utils_8h_ac6185196658e30b99418585bb1de5812}\index{utils.h@{utils.h}!parseTruckData@{parseTruckData}}
+\index{parseTruckData@{parseTruckData}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{parseTruckData()}{parseTruckData()}}
+{\footnotesize\ttfamily \label{utils_8h_ac6185196658e30b99418585bb1de5812} 
+\doxymbox{\hyperlink{class_error}{Error}} parse\+Truck\+Data (\begin{DoxyParamCaption}\item[{const QString \&}]{content}{, }\item[{\doxymbox{\hyperlink{struct_truck}{Truck}} \&}]{truck}{, }\item[{int \&}]{start\+Node}{, }\item[{int \&}]{end\+Node}{}\end{DoxyParamCaption})}
+
+
+
+Выполняет синтаксический анализ и валидацию файла параметров автомобиля 
+
+Синтаксический анализатор текстовых данных файла характеристик автомобиля.
+
+Парсит строку, проверяет количество токенов, типы данных и физические диапазоны. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em content} & Сырой текст из файла truck.\+txt \\
+\hline
+\doxymbox{\texttt{out}}  & {\em truck} & Объект для сохранения извлеченных массы и высоты машины \\
+\hline
+\doxymbox{\texttt{out}}  & {\em start\+Node} & Переменная для записи номера начального пункта \\
+\hline
+\doxymbox{\texttt{out}}  & {\em end\+Node} & Переменная для записи номера конечного пункта \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{class_error}{Error} Статус успешности парсинга (No\+Error, Not\+ANumber или Out\+Of\+Range)
+\end{DoxyReturn}
+Выполняет синтаксический анализ и валидацию файла параметров автомобиля Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=239pt]{utils_8h_ac6185196658e30b99418585bb1de5812_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{utils_8h_a47226af2e1d69957bc806f2214312539}\index{utils.h@{utils.h}!readFile@{readFile}}
+\index{readFile@{readFile}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{readFile()}{readFile()}}
+{\footnotesize\ttfamily \label{utils_8h_a47226af2e1d69957bc806f2214312539} 
+\doxymbox{\hyperlink{class_error}{Error}} read\+File (\begin{DoxyParamCaption}\item[{const QString \&}]{filename}{, }\item[{QString \&}]{content}{}\end{DoxyParamCaption})}
+
+
+
+Читает текстовый файл с диска в строку 
+
+Функция безопасного чтения всего содержимого текстового файла.
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em filename} & Путь к файлу на диске \\
+\hline
+\doxymbox{\texttt{out}}  & {\em content} & Строка, в которую будет записано всё содержимое файла \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{class_error}{Error} Объект ошибки со статусом No\+Error или Input\+File\+Not\+Found
+\end{DoxyReturn}
+Читает текстовый файл с диска в строку \texorpdfstring{$<$}{<} Вычитывание всего текстового потока в переменнуюГраф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=204pt]{utils_8h_a47226af2e1d69957bc806f2214312539_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{utils_8h_afab9cc5b150b064e6b5509fc61137f42}\index{utils.h@{utils.h}!writeToFile@{writeToFile}}
+\index{writeToFile@{writeToFile}!utils.h@{utils.h}}
+\doxysubsubsection{\texorpdfstring{writeToFile()}{writeToFile()}}
+{\footnotesize\ttfamily \label{utils_8h_afab9cc5b150b064e6b5509fc61137f42} 
+\doxymbox{\hyperlink{class_error}{Error}} write\+To\+File (\begin{DoxyParamCaption}\item[{const QString \&}]{filename}{, }\item[{const QString \&}]{content}{}\end{DoxyParamCaption})}
+
+
+
+Сохраняет переданную строку в текстовый файл на диск 
+
+Функция записи сформированной строки в файл с фиксацией UTF-\/8.
+
+Принудительно использует кодировку UTF-\/8 для корректного сохранения кириллицы. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em filename} & Путь для создания/\+перезаписи файла \\
+\hline
+\doxymbox{\texttt{in}}  & {\em content} & Текстовая строка для записи \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{class_error}{Error} Объект ошибки со статусом No\+Error или Output\+Create\+Fail
+\end{DoxyReturn}
+Сохраняет переданную строку в текстовый файл на диск \texorpdfstring{$<$}{<} Принудительный выбор кодека для стабильного отображения кириллицыГраф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{utils_8h_afab9cc5b150b064e6b5509fc61137f42_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,5 @@
+<map id="Error::Error" name="Error::Error">
+<area shape="rect" id="Node000001" title="Конструктор по умолчанию (создает объект без ошибки)." alt="" coords="174,5,259,32"/>
+<area shape="rect" id="Node000002" href="$class_error.html#a363c3533442e5197214d343effd98e10" title="Оператор проверки равенства двух объектов ошибок" alt="" coords="5,5,126,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,19,126,21,126,16,161,18"/>
+</map>

@@ -4,7 +4,15 @@
 #include "datatypes.h"
 #include "utils.h"
 #include "graph.h"
-
+/**
+ * @mainpage Расчет маршрута грузового автомобиля (Лабораторная работа №4)
+ * * @section intro_sec Введение
+ * Программа предназначена для расчёта кратчайшего маршрута грузового автомобиля между двумя пунктами
+ * с учётом ограничений по высоте и массе. Реализована на базе алгоритма Дейкстры.
+ * * @section author_sec Разработчик
+ * Выполнил: студент группы ПрИн-266 Сапунков А.Р.\n
+ * Проверил: Кулюкин К.С.
+ */
 /**
  * @file main.cpp
  * @author Сапунков А.Р.
@@ -64,30 +72,36 @@ int main(int argc, char *argv[]) {
     }
 
     // 4. Поиск пути
-    QList<int> path;
-    double totalLen, requiredMass, requiredHeight;
-    RouteStatus status = graph.findShortestPath(startNode, endNode, truck, path, totalLen, requiredMass, requiredHeight);
+        QList<int> path;
+        double totalLen, requiredMass, requiredHeight;
+        RouteStatus status = graph.findShortestPath(startNode, endNode, truck, path, totalLen, requiredMass, requiredHeight);
 
-    // 5. Обработка результатов
-    if (status == RouteStatus::NoRouteExists) {
-        std::cerr << "Маршрут не существует: пункты " << startNode << " и " << endNode << " никак не соединены дорогами.\n";
-        return 1;
-    } else if (status == RouteStatus::RouteImpossible) {
-        std::cerr << "Маршрут невозможен: требуется для проезда масса <= " << requiredMass
-                  << ", высота <= " << requiredHeight << ". Ваш автомобиль: масса = "
-                  << truck.mass << ", высота = " << truck.height << ".\n";
-        return 1;
-    }
+        QString errorMsgForDot = "";
 
-    // Если путь найден - генерируем DOT
-    QString resultDot = generateDotRoute(graph, path, totalLen);
-    err = writeToFile(outputFile, resultDot);
+        // 5. Обработка результатов и формирование текста ошибки
+        if (status == RouteStatus::NoRouteExists) {
+            errorMsgForDot = QString("Ошибка: Маршрут не существует.\nПункты %1 и %2 никак не соединены дорогами.").arg(startNode).arg(endNode);
+            std::cerr << errorMsgForDot.toStdString() << "\n";
+        } else if (status == RouteStatus::RouteImpossible) {
+            errorMsgForDot = QString("Ошибка: Маршрут невозможен из-за ограничений.\nТребуется для проезда: масса <= %1, высота <= %2.\nВаш автомобиль: масса = %3, высота = %4.")
+                              .arg(requiredMass, 0, 'f', 1).arg(requiredHeight, 0, 'f', 1).arg(truck.mass, 0, 'f', 1).arg(truck.height, 0, 'f', 1);
+            std::cerr << errorMsgForDot.toStdString() << "\n";
+        }
 
-    if (err.type != ErrorType::NoError) {
-        std::cerr << err.generateErrorMessage().toStdString() << "\n";
-        return 1;
-    }
+        // 6. ВСЕГДА генерируем DOT (и при успехе, и при ошибке)
+        QString resultDot = generateDotRoute(graph, path, totalLen, status, errorMsgForDot);
+        err = writeToFile(outputFile, resultDot);
 
-    std::cout << "Успех! Маршрут найден и сохранен в файл: " << outputFile.toStdString() << "\n";
-    return 0;
+        if (err.type != ErrorType::NoError) {
+            std::cerr << err.generateErrorMessage().toStdString() << "\n";
+            return 1;
+        }
+
+        if (status == RouteStatus::PathFound) {
+            std::cout << "Успех! Маршрут найден и сохранен в файл: " << outputFile.toStdString() << "\n";
+            return 0;
+        } else {
+            std::cout << "Граф с описанием ошибки сохранен в файл: " << outputFile.toStdString() << "\n";
+            return 1; // Завершаем с ошибкой, так как физически маршрут не проложен
+        }
 }

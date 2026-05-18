@@ -1,0 +1,19 @@
+<map id="main" name="main">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,132,55,159"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title="Главный метод высокоуровневого расчета оптимального маршрута" alt="" coords="116,5,278,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="35,130,59,87,78,62,101,42,112,37,109,41,104,46,82,66,64,90,40,133"/>
+<area shape="rect" id="Node000004" href="$utils_8cpp.html#acc06e4aa5ccc0321c97f018a013ac5d2" title="Функция генерации выходной строки на языке описания графов DOT." alt="" coords="133,56,260,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="45,130,71,110,101,92,120,86,117,90,104,97,74,115,49,133"/>
+<area shape="rect" id="Node000006" href="$class_error.html#a1e9308e86007eef5a656c7701c21ee15" title="Формирует и возвращает итоговую строку сообщения об ошибке" alt="" coords="103,107,291,133"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="54,139,92,134,88,138,57,144"/>
+<area shape="rect" id="Node000007" href="$utils_8cpp.html#ac6185196658e30b99418585bb1de5812" title="Синтаксический анализатор текстовых данных файла характеристик автомобиля." alt="" coords="140,157,254,184"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="55,146,126,158,122,162,56,152"/>
+<area shape="rect" id="Node000008" href="$utils_8cpp.html#a47226af2e1d69957bc806f2214312539" title="Функция безопасного чтения всего содержимого текстового файла." alt="" coords="163,208,230,235"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="47,157,74,176,104,194,150,211,145,213,102,198,71,180,47,162"/>
+<area shape="rect" id="Node000009" href="$utils_8cpp.html#afab9cc5b150b064e6b5509fc61137f42" title="Функция записи сформированной строки в файл с фиксацией UTF&#45;8." alt="" coords="155,259,239,285"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="38,157,64,201,82,225,104,244,142,263,137,264,101,249,78,228,59,204,36,162"/>
+<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title="Низкоуровневая реализация волнового алгоритма Дейкстры" alt="" coords="360,5,487,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="277,16,346,17,341,20,278,21"/>
+<area shape="rect" id="Node000005" href="$class_graph.html#ad81fbd75acc3b6d396f08cde2fbfaadd" title="Геттер для получения копии списка смежности графа" alt="" coords="339,56,507,83"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="260,67,326,68,321,70,262,72"/>
+</map>

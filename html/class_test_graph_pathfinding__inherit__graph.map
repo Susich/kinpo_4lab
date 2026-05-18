@@ -1,0 +1,5 @@
+<map id="TestGraphPathfinding" name="TestGraphPathfinding">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,123,207,517"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="77,5,136,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,87,109,123,104,123,106,92"/>
+</map>

@@ -1,0 +1,186 @@
+\doxysection{Файл datatypes.\+h}
+\hypertarget{datatypes_8h}{}\label{datatypes_8h}\index{datatypes.h@{datatypes.h}}
+
+
+Описание базовых структур данных и перечислений системы.  
+
+
+{\ttfamily \+\#include $<$QString$>$}\newline
+{\ttfamily \+\#include $<$QSet$>$}\newline
+{\ttfamily \+\#include $<$QHash$>$}\newline
+Граф включаемых заголовочных файлов для datatypes.\+h:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=251pt]{datatypes_8h__incl}
+\end{center}
+\end{figure}
+Граф файлов, в которые включается этот файл:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=283pt]{datatypes_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Классы}
+\begin{DoxyCompactItemize}
+\item 
+class \doxymbox{\hyperlink{class_error}{Error}}
+\begin{DoxyCompactList}\small\item\em Класс для обработки, хранения и генерации сообщений об ошибках \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_edge}{Edge}}
+\begin{DoxyCompactList}\small\item\em Структура, моделирующая участок дороги (ребро графа). \end{DoxyCompactList}\item 
+struct \doxymbox{\hyperlink{struct_truck}{Truck}}
+\begin{DoxyCompactList}\small\item\em Структура, описывающая габаритные характеристики грузового автомобиля \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Перечисления}
+\begin{DoxyCompactItemize}
+\item 
+enum class \doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}{Error\+Type}} \{ \newline
+\doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea}{No\+Error}}
+, \doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd}{Input\+File\+Not\+Found}}
+, \doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f}{Output\+Create\+Fail}}
+, \doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8}{Not\+ANumber}}
+, \newline
+\doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f}{Out\+Of\+Range}}
+, \doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408}{Dot\+Syntax\+Error}}
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление типов системных и синтаксических ошибок \end{DoxyCompactList}\item 
+enum class \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status}} \{ \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef}{Path\+Found}}
+, \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a}{No\+Route\+Exists}}
+, \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d}{Route\+Impossible}}
+ \}
+\begin{DoxyCompactList}\small\item\em Перечисление возможных статусов поиска маршрута \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Функции}
+\begin{DoxyCompactItemize}
+\item 
+uint \doxymbox{\hyperlink{datatypes_8h_a4b83ca7bba7b28a61e35eac02ef8c120}{q\+Hash}} (const \doxymbox{\hyperlink{class_error}{Error}} \&key, uint seed=0)
+\begin{DoxyCompactList}\small\item\em Внешняя функция вычисления хэш-\/кода для класса \doxylink{class_error}{Error}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Описание базовых структур данных и перечислений системы. 
+
+\begin{DoxyAuthor}{Автор}
+Сапунков А.\+Р.
+\end{DoxyAuthor}
+Содержит перечисления типов ошибок, статусов маршрутов, а также структуры для моделирования дорожной сети и транспортного средства. 
+
+\label{datatypes_8h_doc-enum-members}
+\Hypertarget{datatypes_8h_doc-enum-members}
+\doxysubsection{Перечисления}
+\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}\index{datatypes.h@{datatypes.h}!ErrorType@{ErrorType}}
+\index{ErrorType@{ErrorType}!datatypes.h@{datatypes.h}}
+\doxysubsubsection{\texorpdfstring{ErrorType}{ErrorType}}
+{\footnotesize\ttfamily \label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a} 
+enum class \doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}{Error\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Перечисление типов системных и синтаксических ошибок 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoError@{NoError}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!NoError@{NoError}}
+}\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea}\label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea} 
+No\+Error&Ошибок не обнаружено \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{InputFileNotFound@{InputFileNotFound}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!InputFileNotFound@{InputFileNotFound}}
+}\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd}\label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd} 
+Input\+File\+Not\+Found&Указанный входной файл не найден на диске \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OutputCreateFail@{OutputCreateFail}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!OutputCreateFail@{OutputCreateFail}}
+}\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f}\label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f} 
+Output\+Create\+Fail&Не удалось создать выходной файл (отказ в доступе). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NotANumber@{NotANumber}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!NotANumber@{NotANumber}}
+}\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8}\label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8} 
+Not\+ANumber&Текстовый параметр не может быть преобразован в число \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{OutOfRange@{OutOfRange}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!OutOfRange@{OutOfRange}}
+}\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f}\label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f} 
+Out\+Of\+Range&Значение числа выходит за рамки физических лимитов \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DotSyntaxError@{DotSyntaxError}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!DotSyntaxError@{DotSyntaxError}}
+}\Hypertarget{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408}\label{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408} 
+Dot\+Syntax\+Error&Нарушен синтаксис или структура входного DOT-\/файла \\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{datatypes_8h_a2502aed4307441828cacb3cf03def5de}\index{datatypes.h@{datatypes.h}!RouteStatus@{RouteStatus}}
+\index{RouteStatus@{RouteStatus}!datatypes.h@{datatypes.h}}
+\doxysubsubsection{\texorpdfstring{RouteStatus}{RouteStatus}}
+{\footnotesize\ttfamily \label{datatypes_8h_a2502aed4307441828cacb3cf03def5de} 
+enum class \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+
+
+Перечисление возможных статусов поиска маршрута 
+
+\begin{DoxyEnumFields}[2]{Элементы перечислений}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PathFound@{PathFound}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!PathFound@{PathFound}}
+}\Hypertarget{datatypes_8h_a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef}\label{datatypes_8h_a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef} 
+Path\+Found&Кратчайший путь успешно найден, габариты подходят \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NoRouteExists@{NoRouteExists}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!NoRouteExists@{NoRouteExists}}
+}\Hypertarget{datatypes_8h_a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a}\label{datatypes_8h_a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a} 
+No\+Route\+Exists&Физический путь между пунктами отсутствует (граф не связен). \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RouteImpossible@{RouteImpossible}!datatypes.h@{datatypes.h}}
+\index{datatypes.h@{datatypes.h}!RouteImpossible@{RouteImpossible}}
+}\Hypertarget{datatypes_8h_a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d}\label{datatypes_8h_a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d} 
+Route\+Impossible&Путь существует, но проезд заблокирован ограничениями габаритов \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\label{datatypes_8h_doc-func-members}
+\Hypertarget{datatypes_8h_doc-func-members}
+\doxysubsection{Функции}
+\Hypertarget{datatypes_8h_a4b83ca7bba7b28a61e35eac02ef8c120}\index{datatypes.h@{datatypes.h}!qHash@{qHash}}
+\index{qHash@{qHash}!datatypes.h@{datatypes.h}}
+\doxysubsubsection{\texorpdfstring{qHash()}{qHash()}}
+{\footnotesize\ttfamily \label{datatypes_8h_a4b83ca7bba7b28a61e35eac02ef8c120} 
+uint q\+Hash (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_error}{Error}} \&}]{key}{, }\item[{uint}]{seed}{ = {\ttfamily 0}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Внешняя функция вычисления хэш-\/кода для класса \doxylink{class_error}{Error}. 
+
+Позволяет использовать объекты \doxylink{class_error}{Error} в качестве элементов хэш-\/таблиц (QSet). 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em key} & Объект ошибки для хэширования \\
+\hline
+\doxymbox{\texttt{in}}  & {\em seed} & Начальное значение (соль) хэша \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+uint Уникальное числовое представление объекта 
+\end{DoxyReturn}
+Граф вызовов:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{datatypes_8h_a4b83ca7bba7b28a61e35eac02ef8c120_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=125pt]{datatypes_8h_a4b83ca7bba7b28a61e35eac02ef8c120_icgraph}
+\end{center}
+\end{figure}

@@ -1,0 +1,16 @@
+<map id="datatypes.h" name="datatypes.h">
+<area shape="rect" id="Node000001" title="Описание базовых структур данных и перечислений системы." alt="" coords="156,5,245,32"/>
+<area shape="rect" id="Node000002" href="$graph_8h.html" title="Интерфейс класса Graph для управления дорожной сетью." alt="" coords="84,80,149,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,41,133,82,129,78,172,44"/>
+<area shape="rect" id="Node000004" href="$main_8cpp.html" title="Главный файл программы согласно Внутренней спецификации." alt="" coords="202,155,276,181"/>
+<area shape="poly" id="edge5_Node000001_Node000004" title=" " alt="" coords="223,42,243,79,248,120,244,156,240,153,242,121,238,81,221,47"/>
+<area shape="rect" id="Node000006" href="$utils_8h.html" title="Декларация утилитных функций ввода&#45;вывода, парсинга и генерации отчетов." alt="" coords="172,80,229,107"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="202,46,203,81,198,78,199,50"/>
+<area shape="rect" id="Node000003" href="$graph_8cpp.html" title="Реализация методов класса Graph для управления дорожной сетью." alt="" coords="5,155,84,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="96,118,59,156,55,152,91,118"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="152,112,220,154,215,155,150,117"/>
+<area shape="rect" id="Node000005" href="$utils_8cpp.html" title="Реализация вспомогательных функций ввода&#45;вывода и генерации отчетов." alt="" coords="108,155,178,181"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="128,119,141,155,136,154,125,123"/>
+<area shape="poly" id="edge7_Node000006_Node000004" title=" " alt="" coords="216,118,235,155,230,153,213,123"/>
+<area shape="poly" id="edge8_Node000006_Node000005" title=" " alt="" coords="184,118,155,156,151,152,179,120"/>
+</map>

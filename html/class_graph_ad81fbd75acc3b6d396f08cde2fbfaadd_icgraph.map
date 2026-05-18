@@ -1,0 +1,7 @@
+<map id="Graph::getAdjacencyMap" name="Graph::getAdjacencyMap">
+<area shape="rect" id="Node000001" title="Геттер для получения копии списка смежности графа" alt="" coords="278,5,446,32"/>
+<area shape="rect" id="Node000002" href="$utils_8cpp.html#acc06e4aa5ccc0321c97f018a013ac5d2" title="Функция генерации выходной строки на языке описания графов DOT." alt="" coords="103,5,230,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="260,19,230,21,230,16,265,19"/>
+<area shape="rect" id="Node000003" href="$main_8cpp.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,55,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="84,20,55,21,55,16,89,18"/>
+</map>

@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Truck Route Calculator: Исходный файл datatypes.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Truck Route Calculator<span id="projectnumber">&#160;Lab 4</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('datatypes_8h_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">datatypes.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="datatypes_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DATATYPES_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DATATYPES_H</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;QSet&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;QHash&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span></div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45a">   19</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45a">ErrorType</a> {</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea">   20</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea">NoError</a>,            </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd">   21</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd">InputFileNotFound</a>,  </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f">   22</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f">OutputCreateFail</a>,   </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8">   23</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8">NotANumber</a>,         </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f">   24</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f">OutOfRange</a>,         </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408">   25</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408">DotSyntaxError</a>      </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
+</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="};">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5de">   31</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5de">RouteStatus</a> {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef">   32</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef">PathFound</a>,          </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a">   33</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a">NoRouteExists</a>,      </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d">   34</a></span>    <a class="code hl_enumvalue" href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d">RouteImpossible</a>     </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>};</div>
+</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span></div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_error.html">   40</a></span><span class="keyword">class </span><a class="code hl_function" href="class_error.html#aca339d00ad8481fb4c184f0ece42698b">Error</a> {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">   42</a></span>    <a class="code hl_enumeration" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45a">ErrorType</a> <a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a>;        </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="class_error.html#ab1278c60b857956b117baacc04b320d9">   43</a></span>    QString <a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a>;   </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="class_error.html#aca339d00ad8481fb4c184f0ece42698b">   48</a></span>    <a class="code hl_function" href="class_error.html#aca339d00ad8481fb4c184f0ece42698b">Error</a>() : <a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a>(<a class="code hl_enumeration" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45a">ErrorType</a>::<a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea">NoError</a>), <a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a>(<span class="stringliteral">&quot;&quot;</span>) {}</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="class_error.html#aaf0ca3eee7ff625b2d63f80c4a6de029">   55</a></span>    <a class="code hl_function" href="class_error.html#aaf0ca3eee7ff625b2d63f80c4a6de029">Error</a>(<a class="code hl_enumeration" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45a">ErrorType</a> t, <span class="keyword">const</span> QString&amp; detail) : <a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a>(t), <a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a>(detail) {}</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span></div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="class_error.html#a1e9308e86007eef5a656c7701c21ee15">   61</a></span>    QString <a class="code hl_function" href="class_error.html#a1e9308e86007eef5a656c7701c21ee15">generateErrorMessage</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a> == <a class="code hl_enumvalue" href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea">ErrorType::NoError</a>) <span class="keywordflow">return</span> <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    }</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_error.html#a363c3533442e5197214d343effd98e10">   73</a></span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="class_error.html#a363c3533442e5197214d343effd98e10">operator==</a>(<span class="keyword">const</span> <a class="code hl_function" href="class_error.html#aca339d00ad8481fb4c184f0ece42698b">Error</a>&amp; other)<span class="keyword"> const </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a> == other.<a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a> &amp;&amp; <a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a> == other.<a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="datatypes_8h.html#a4b83ca7bba7b28a61e35eac02ef8c120">   85</a></span><span class="keyword">inline</span> uint <a class="code hl_function" href="datatypes_8h.html#a4b83ca7bba7b28a61e35eac02ef8c120">qHash</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_error.html">Error</a>&amp; key, uint seed = 0) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="datatypes_8h.html#a4b83ca7bba7b28a61e35eac02ef8c120">qHash</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(key.<a class="code hl_variable" href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">type</a>), seed) ^ <a class="code hl_function" href="datatypes_8h.html#a4b83ca7bba7b28a61e35eac02ef8c120">qHash</a>(key.<a class="code hl_variable" href="class_error.html#ab1278c60b857956b117baacc04b320d9">errorDetail</a>, seed);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span></div>
+<div class="foldopen" id="foldopen00092" data-start="{" data-end="};">
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="struct_edge.html">   92</a></span><span class="keyword">struct </span><a class="code hl_function" href="struct_edge.html#a3106b11d60125009dbf7a738ce540fdf">Edge</a> {</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="struct_edge.html#ae3ea80ea41b7a8072d456af9110dc6d5">   93</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_edge.html#ae3ea80ea41b7a8072d456af9110dc6d5">length</a>;    </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="struct_edge.html#ad4e6913857bea60ff1c3b633a06761a6">   94</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_edge.html#ad4e6913857bea60ff1c3b633a06761a6">maxMass</a>;   </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="struct_edge.html#a9fe0af6b00a51d5012f3010ab9a2163d">   95</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_edge.html#a9fe0af6b00a51d5012f3010ab9a2163d">maxHeight</a>; </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="struct_edge.html#a3106b11d60125009dbf7a738ce540fdf">  100</a></span>    <a class="code hl_function" href="struct_edge.html#a3106b11d60125009dbf7a738ce540fdf">Edge</a>() : <a class="code hl_variable" href="struct_edge.html#ae3ea80ea41b7a8072d456af9110dc6d5">length</a>(0.0), <a class="code hl_variable" href="struct_edge.html#ad4e6913857bea60ff1c3b633a06761a6">maxMass</a>(0.0), <a class="code hl_variable" href="struct_edge.html#a9fe0af6b00a51d5012f3010ab9a2163d">maxHeight</a>(0.0) {}</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="struct_edge.html#a3d502a95b039750307ff6db54ace150d">  108</a></span>    <a class="code hl_function" href="struct_edge.html#a3d502a95b039750307ff6db54ace150d">Edge</a>(<span class="keywordtype">double</span> l, <span class="keywordtype">double</span> m, <span class="keywordtype">double</span> h) : <a class="code hl_variable" href="struct_edge.html#ae3ea80ea41b7a8072d456af9110dc6d5">length</a>(l), <a class="code hl_variable" href="struct_edge.html#ad4e6913857bea60ff1c3b633a06761a6">maxMass</a>(m), <a class="code hl_variable" href="struct_edge.html#a9fe0af6b00a51d5012f3010ab9a2163d">maxHeight</a>(h) {}</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>};</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span></div>
+<div class="foldopen" id="foldopen00114" data-start="{" data-end="};">
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="struct_truck.html">  114</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_truck.html">Truck</a> {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="struct_truck.html#aacfd731ad7431132637599c52ec5004f">  115</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_truck.html#aacfd731ad7431132637599c52ec5004f">mass</a>;      </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="struct_truck.html#acd539d356fb040e4aa433b62efe149d1">  116</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="struct_truck.html#acd539d356fb040e4aa433b62efe149d1">height</a>;    </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>};</div>
+</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">class </span><a class="code hl_class" href="class_graph.html">Graph</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="preprocessor">#endif </span><span class="comment">// DATATYPES_H</span></div>
+<div class="ttc" id="aclass_error_html"><div class="ttname"><a href="class_error.html">Error</a></div><div class="ttdoc">Класс для обработки, хранения и генерации сообщений об ошибках</div><div class="ttdef"><b>Определения</b> datatypes.h:40</div></div>
+<div class="ttc" id="aclass_error_html_a1e9308e86007eef5a656c7701c21ee15"><div class="ttname"><a href="class_error.html#a1e9308e86007eef5a656c7701c21ee15">Error::generateErrorMessage</a></div><div class="ttdeci">QString generateErrorMessage() const</div><div class="ttdoc">Формирует и возвращает итоговую строку сообщения об ошибке</div><div class="ttdef"><b>Определения</b> datatypes.h:61</div></div>
+<div class="ttc" id="aclass_error_html_a363c3533442e5197214d343effd98e10"><div class="ttname"><a href="class_error.html#a363c3533442e5197214d343effd98e10">Error::operator==</a></div><div class="ttdeci">bool operator==(const Error &amp;other) const</div><div class="ttdoc">Оператор проверки равенства двух объектов ошибок</div><div class="ttdef"><b>Определения</b> datatypes.h:73</div></div>
+<div class="ttc" id="aclass_error_html_a4d9ef9fdc894088985e42ccda181ece7"><div class="ttname"><a href="class_error.html#a4d9ef9fdc894088985e42ccda181ece7">Error::type</a></div><div class="ttdeci">ErrorType type</div><div class="ttdoc">Категория (тип) возникшей ошибки</div><div class="ttdef"><b>Определения</b> datatypes.h:42</div></div>
+<div class="ttc" id="aclass_error_html_aaf0ca3eee7ff625b2d63f80c4a6de029"><div class="ttname"><a href="class_error.html#aaf0ca3eee7ff625b2d63f80c4a6de029">Error::Error</a></div><div class="ttdeci">Error(ErrorType t, const QString &amp;detail)</div><div class="ttdoc">Инициализирующий конструктор ошибки</div><div class="ttdef"><b>Определения</b> datatypes.h:55</div></div>
+<div class="ttc" id="aclass_error_html_ab1278c60b857956b117baacc04b320d9"><div class="ttname"><a href="class_error.html#ab1278c60b857956b117baacc04b320d9">Error::errorDetail</a></div><div class="ttdeci">QString errorDetail</div><div class="ttdoc">Конкретизированный текст ошибки с деталями</div><div class="ttdef"><b>Определения</b> datatypes.h:43</div></div>
+<div class="ttc" id="aclass_error_html_aca339d00ad8481fb4c184f0ece42698b"><div class="ttname"><a href="class_error.html#aca339d00ad8481fb4c184f0ece42698b">Error::Error</a></div><div class="ttdeci">Error()</div><div class="ttdoc">Конструктор по умолчанию (создает объект без ошибки).</div><div class="ttdef"><b>Определения</b> datatypes.h:48</div></div>
+<div class="ttc" id="aclass_graph_html"><div class="ttname"><a href="class_graph.html">Graph</a></div><div class="ttdoc">Класс математической модели графа дорожной сети</div><div class="ttdef"><b>Определения</b> graph.h:21</div></div>
+<div class="ttc" id="adatatypes_8h_html_a2502aed4307441828cacb3cf03def5de"><div class="ttname"><a href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5de">RouteStatus</a></div><div class="ttdeci">RouteStatus</div><div class="ttdoc">Перечисление возможных статусов поиска маршрута</div><div class="ttdef"><b>Определения</b> datatypes.h:31</div></div>
+<div class="ttc" id="adatatypes_8h_html_a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef"><div class="ttname"><a href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5dea5ec9b26add71556d658a66dedfab56ef">RouteStatus::PathFound</a></div><div class="ttdeci">@ PathFound</div><div class="ttdoc">Кратчайший путь успешно найден, габариты подходят</div><div class="ttdef"><b>Определения</b> datatypes.h:32</div></div>
+<div class="ttc" id="adatatypes_8h_html_a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d"><div class="ttname"><a href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5deab5e28b4788c090d17a5b452e6af0b85d">RouteStatus::RouteImpossible</a></div><div class="ttdeci">@ RouteImpossible</div><div class="ttdoc">Путь существует, но проезд заблокирован ограничениями габаритов</div><div class="ttdef"><b>Определения</b> datatypes.h:34</div></div>
+<div class="ttc" id="adatatypes_8h_html_a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a"><div class="ttname"><a href="datatypes_8h.html#a2502aed4307441828cacb3cf03def5deade2e22614e6ff504fa8560ed914d116a">RouteStatus::NoRouteExists</a></div><div class="ttdeci">@ NoRouteExists</div><div class="ttdoc">Физический путь между пунктами отсутствует (граф не связен).</div><div class="ttdef"><b>Определения</b> datatypes.h:33</div></div>
+<div class="ttc" id="adatatypes_8h_html_a4b83ca7bba7b28a61e35eac02ef8c120"><div class="ttname"><a href="datatypes_8h.html#a4b83ca7bba7b28a61e35eac02ef8c120">qHash</a></div><div class="ttdeci">uint qHash(const Error &amp;key, uint seed=0)</div><div class="ttdoc">Внешняя функция вычисления хэш-кода для класса Error.</div><div class="ttdef"><b>Определения</b> datatypes.h:85</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45a"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45a">ErrorType</a></div><div class="ttdeci">ErrorType</div><div class="ttdoc">Перечисление типов системных и синтаксических ошибок</div><div class="ttdef"><b>Определения</b> datatypes.h:19</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa0bea76c8d49e274bd0a3bd879b9fddfd">ErrorType::InputFileNotFound</a></div><div class="ttdeci">@ InputFileNotFound</div><div class="ttdoc">Указанный входной файл не найден на диске</div><div class="ttdef"><b>Определения</b> datatypes.h:21</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa19ab4a59ed94c5fe1893c0c3eb08615f">ErrorType::OutputCreateFail</a></div><div class="ttdeci">@ OutputCreateFail</div><div class="ttdoc">Не удалось создать выходной файл (отказ в доступе).</div><div class="ttdef"><b>Определения</b> datatypes.h:22</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa365b2699d38b61ef4b4c8a1066c8468f">ErrorType::OutOfRange</a></div><div class="ttdeci">@ OutOfRange</div><div class="ttdoc">Значение числа выходит за рамки физических лимитов</div><div class="ttdef"><b>Определения</b> datatypes.h:24</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa70a47cae4eb221930f2663fd244369ea">ErrorType::NoError</a></div><div class="ttdeci">@ NoError</div><div class="ttdoc">Ошибок не обнаружено</div><div class="ttdef"><b>Определения</b> datatypes.h:20</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aa8d636510a5950d1099dfee8940db51d8">ErrorType::NotANumber</a></div><div class="ttdeci">@ NotANumber</div><div class="ttdoc">Текстовый параметр не может быть преобразован в число</div><div class="ttdef"><b>Определения</b> datatypes.h:23</div></div>
+<div class="ttc" id="adatatypes_8h_html_ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408"><div class="ttname"><a href="datatypes_8h.html#ab0df38968e4f03a3f1f6d6df0f31f45aacb3b89131a1541aeb61d8e6e7a9cf408">ErrorType::DotSyntaxError</a></div><div class="ttdeci">@ DotSyntaxError</div><div class="ttdoc">Нарушен синтаксис или структура входного DOT-файла</div><div class="ttdef"><b>Определения</b> datatypes.h:25</div></div>
+<div class="ttc" id="astruct_edge_html_a3106b11d60125009dbf7a738ce540fdf"><div class="ttname"><a href="struct_edge.html#a3106b11d60125009dbf7a738ce540fdf">Edge::Edge</a></div><div class="ttdeci">Edge()</div><div class="ttdoc">Конструктор по умолчанию (инициализирует поля нулями).</div><div class="ttdef"><b>Определения</b> datatypes.h:100</div></div>
+<div class="ttc" id="astruct_edge_html_a3d502a95b039750307ff6db54ace150d"><div class="ttname"><a href="struct_edge.html#a3d502a95b039750307ff6db54ace150d">Edge::Edge</a></div><div class="ttdeci">Edge(double l, double m, double h)</div><div class="ttdoc">Инициализирующий конструктор ребра графа</div><div class="ttdef"><b>Определения</b> datatypes.h:108</div></div>
+<div class="ttc" id="astruct_edge_html_a9fe0af6b00a51d5012f3010ab9a2163d"><div class="ttname"><a href="struct_edge.html#a9fe0af6b00a51d5012f3010ab9a2163d">Edge::maxHeight</a></div><div class="ttdeci">double maxHeight</div><div class="ttdoc">Предельно допустимая высота транспортного средства на участке (см).</div><div class="ttdef"><b>Определения</b> datatypes.h:95</div></div>
+<div class="ttc" id="astruct_edge_html_ad4e6913857bea60ff1c3b633a06761a6"><div class="ttname"><a href="struct_edge.html#ad4e6913857bea60ff1c3b633a06761a6">Edge::maxMass</a></div><div class="ttdeci">double maxMass</div><div class="ttdoc">Предельно допустимая масса транспортного средства на участке (кг).</div><div class="ttdef"><b>Определения</b> datatypes.h:94</div></div>
+<div class="ttc" id="astruct_edge_html_ae3ea80ea41b7a8072d456af9110dc6d5"><div class="ttname"><a href="struct_edge.html#ae3ea80ea41b7a8072d456af9110dc6d5">Edge::length</a></div><div class="ttdeci">double length</div><div class="ttdoc">Геометрическая длина участка дороги (вес ребра графа).</div><div class="ttdef"><b>Определения</b> datatypes.h:93</div></div>
+<div class="ttc" id="astruct_truck_html"><div class="ttname"><a href="struct_truck.html">Truck</a></div><div class="ttdoc">Структура, описывающая габаритные характеристики грузового автомобиля</div><div class="ttdef"><b>Определения</b> datatypes.h:114</div></div>
+<div class="ttc" id="astruct_truck_html_aacfd731ad7431132637599c52ec5004f"><div class="ttname"><a href="struct_truck.html#aacfd731ad7431132637599c52ec5004f">Truck::mass</a></div><div class="ttdeci">double mass</div><div class="ttdoc">Фактическая полная масса грузовика (кг).</div><div class="ttdef"><b>Определения</b> datatypes.h:115</div></div>
+<div class="ttc" id="astruct_truck_html_acd539d356fb040e4aa433b62efe149d1"><div class="ttname"><a href="struct_truck.html#acd539d356fb040e4aa433b62efe149d1">Truck::height</a></div><div class="ttdeci">double height</div><div class="ttdoc">Фактическая максимальная высота грузовика (см).</div><div class="ttdef"><b>Определения</b> datatypes.h:116</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="datatypes_8h.html">datatypes.h</a></li>
+    <li class="footer">Создано системой <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<map id="utils.h" name="utils.h">
+<area shape="rect" id="Node000001" title="Декларация утилитных функций ввода&#45;вывода, парсинга и генерации отчетов." alt="" coords="51,5,108,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,155,71,181"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,33,48,140,43,139,73,32"/>
+<area shape="rect" id="Node000003" href="$datatypes_8h.html" title="Описание базовых структур данных и перечислений системы." alt="" coords="76,80,165,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,30,109,66,103,67,86,35"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="109,106,65,146,62,142,104,108"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="95,155,146,181"/>
+<area shape="poly" id="edge4_Node000003_Node000004" title=" " alt="" coords="122,105,123,140,118,138,119,109"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="171,155,233,181"/>
+<area shape="poly" id="edge5_Node000003_Node000005" title=" " alt="" coords="136,105,179,144,174,145,134,110"/>
+</map>

@@ -2,6 +2,7 @@ QT -= gui
 QT += core testlib
 CONFIG += c++11 console
 CONFIG -= app_bundle
+CONFIG += console
 
 # You can make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
@@ -10,7 +11,6 @@ CONFIG -= app_bundle
 SOURCES += \
         graph.cpp \
         main.cpp \
-        test_main.cpp \
         utils.cpp
 
 # Default rules for deployment.

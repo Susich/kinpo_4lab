@@ -1,0 +1,35 @@
+\doxysection{graph.\+h}
+\hypertarget{graph_8h_source}{}\label{graph_8h_source}\doxymbox{\hyperlink{graph_8h}{См. документацию.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ GRAPH\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ GRAPH\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <QMap>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ <QString>}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ <QSet>}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}\doxymbox{\hyperlink{datatypes_8h}{datatypes.h}}"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{class\ }\doxymbox{\hyperlink{class_graph_aa6ec1d0caa1b96afe7b5a6ff57c018ef}{Graph}}\ \{}
+\DoxyCodeLine{00022\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00028\ \ \ \ \ QMap<int,\ QMap<int,\ Edge>>\ \doxymbox{\hyperlink{class_graph_a99430f91f89d4b917d8eda5662ff1fad}{adjacencyMap}};}
+\DoxyCodeLine{00029\ }
+\DoxyCodeLine{00039\ \ \ \ \ \textcolor{keywordtype}{void}\ \doxymbox{\hyperlink{class_graph_a68c2e3be2e830c2d9471087a079ca567}{addEdge}}(\textcolor{keywordtype}{int}\ from,\ \textcolor{keywordtype}{int}\ to,\ \textcolor{keywordtype}{double}\ len,\ \textcolor{keywordtype}{double}\ mMass,\ \textcolor{keywordtype}{double}\ mHeight);}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ \doxymbox{\hyperlink{class_graph_a82de0064c51899131123628386c6ef87}{runDijkstra}}(\textcolor{keywordtype}{int}\ startNode,\ \textcolor{keywordtype}{int}\ endNode,\ QList<int>\&\ path,\ \textcolor{keywordtype}{double}\&\ totalLen,}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ pathMass,\ \textcolor{keywordtype}{double}\&\ pathHeight,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_truck}{Truck}}*\ truck\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \doxymbox{\hyperlink{class_graph_aa6ec1d0caa1b96afe7b5a6ff57c018ef}{Graph}}(\textcolor{keyword}{const}\ QString\&\ dotContent,\ QSet<Error>\&\ errors);}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00080\ \ \ \ \ \doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{RouteStatus}}\ \doxymbox{\hyperlink{class_graph_a872006cb71f4ab9d56175f8eb4787ed9}{findShortestPath}}(\textcolor{keywordtype}{int}\ startNode,\ \textcolor{keywordtype}{int}\ endNode,\ \textcolor{keyword}{const}\ \doxymbox{\hyperlink{struct_truck}{Truck}}\&\ truck,}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ QList<int>\&\ path,\ \textcolor{keywordtype}{double}\&\ totalLen,}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\&\ requiredMass,\ \textcolor{keywordtype}{double}\&\ requiredHeight);}
+\DoxyCodeLine{00083\ }
+\DoxyCodeLine{00088\ \ \ \ \ QMap<int,\ QMap<int,\ Edge>>\ \doxymbox{\hyperlink{class_graph_ad81fbd75acc3b6d396f08cde2fbfaadd}{getAdjacencyMap}}()\textcolor{keyword}{\ const\ }\{\ \textcolor{keywordflow}{return}\ \doxymbox{\hyperlink{class_graph_a99430f91f89d4b917d8eda5662ff1fad}{adjacencyMap}};\ \}}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GRAPH\_H}}
+
+\end{DoxyCode}

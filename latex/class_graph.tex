@@ -1,0 +1,277 @@
+\doxysection{Класс Graph}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph@{Graph}}
+
+
+Класс математической модели графа дорожной сети  
+
+
+
+
+{\ttfamily \+\#include $<$graph.\+h$>$}
+
+
+
+Граф связей класса Graph:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=182pt]{class_graph__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_graph_aa6ec1d0caa1b96afe7b5a6ff57c018ef}{Graph}} (const QString \&dot\+Content, QSet$<$ \doxymbox{\hyperlink{class_error}{Error}} $>$ \&errors)
+\begin{DoxyCompactList}\small\item\em Конструктор графа, совмещенный с синтаксическим парсером DOT. \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status}} \doxymbox{\hyperlink{class_graph_a872006cb71f4ab9d56175f8eb4787ed9}{find\+Shortest\+Path}} (int start\+Node, int end\+Node, const \doxymbox{\hyperlink{struct_truck}{Truck}} \&truck, QList$<$ int $>$ \&path, double \&total\+Len, double \&required\+Mass, double \&required\+Height)
+\begin{DoxyCompactList}\small\item\em Главный метод высокоуровневого расчета оптимального маршрута \end{DoxyCompactList}\item 
+QMap$<$ int, QMap$<$ int, \doxymbox{\hyperlink{struct_edge}{Edge}} $>$ $>$ \doxymbox{\hyperlink{class_graph_ad81fbd75acc3b6d396f08cde2fbfaadd}{get\+Adjacency\+Map}} () const
+\begin{DoxyCompactList}\small\item\em Геттер для получения копии списка смежности графа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+void \doxymbox{\hyperlink{class_graph_a68c2e3be2e830c2d9471087a079ca567}{add\+Edge}} (int from, int to, double len, double m\+Mass, double m\+Height)
+\begin{DoxyCompactList}\small\item\em Внутренний метод добавления ребра в структуру графа \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_graph_a82de0064c51899131123628386c6ef87}{run\+Dijkstra}} (int start\+Node, int end\+Node, QList$<$ int $>$ \&path, double \&total\+Len, double \&path\+Mass, double \&path\+Height, const \doxymbox{\hyperlink{struct_truck}{Truck}} \texorpdfstring{$\ast$}{*}truck=nullptr)
+\begin{DoxyCompactList}\small\item\em Низкоуровневая реализация волнового алгоритма Дейкстры \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+QMap$<$ int, QMap$<$ int, \doxymbox{\hyperlink{struct_edge}{Edge}} $>$ $>$ \doxymbox{\hyperlink{class_graph_a99430f91f89d4b917d8eda5662ff1fad}{adjacency\+Map}}
+\begin{DoxyCompactList}\small\item\em Двумерный ассоциативный словарь смежности графа \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс математической модели графа дорожной сети 
+
+Хранит топологию карты в виде двумерного списка смежности и реализует алгоритмы валидации и поиска кратчайших маршрутов. 
+
+\label{class_graph_doc-constructors}
+\Hypertarget{class_graph_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_graph_aa6ec1d0caa1b96afe7b5a6ff57c018ef}\index{Graph@{Graph}!Graph@{Graph}}
+\index{Graph@{Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{Graph()}{Graph()}}
+{\footnotesize\ttfamily \label{class_graph_aa6ec1d0caa1b96afe7b5a6ff57c018ef} 
+Graph::\+\+Graph (\begin{DoxyParamCaption}\item[{const QString \&}]{dot\+Content}{, }\item[{QSet$<$ \doxymbox{\hyperlink{class_error}{Error}} $>$ \&}]{errors}{}\end{DoxyParamCaption})}
+
+
+
+Конструктор графа, совмещенный с синтаксическим парсером DOT. 
+
+Читает текст DOT-\/файла, проверяет его на валидность и заполняет граф. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em dot\+Content} & Строка с сырым текстовым содержимым DOT-\/файла \\
+\hline
+\doxymbox{\texttt{out}}  & {\em errors} & Множество для аккумулирования найденных синтаксических ошибок\\
+\hline
+\end{DoxyParams}
+Метод выполняет синтаксический разбор входного текста, проверяет структуру графа, выделяет параметры каждого ребра, валидирует их типы и диапазоны. \texorpdfstring{$<$}{<} Идентификатор первой вершины (пункта)
+
+\texorpdfstring{$<$}{<} Идентификатор второй вершины (пункта)
+
+\texorpdfstring{$<$}{<} Строка содержащая только список атрибутов ребра
+
+\texorpdfstring{$<$}{<} Разделение строки атрибутов по запятым
+
+\texorpdfstring{$<$}{<} Очистка от пробелов по краямГраф вызовов:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_graph_aa6ec1d0caa1b96afe7b5a6ff57c018ef_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_graph_doc-func-members}
+\Hypertarget{class_graph_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_graph_a68c2e3be2e830c2d9471087a079ca567}\index{Graph@{Graph}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily \label{class_graph_a68c2e3be2e830c2d9471087a079ca567} 
+void Graph::\+add\+Edge (\begin{DoxyParamCaption}\item[{int}]{from}{, }\item[{int}]{to}{, }\item[{double}]{len}{, }\item[{double}]{m\+Mass}{, }\item[{double}]{m\+Height}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Внутренний метод добавления ребра в структуру графа 
+
+Метод занесения ребра в двумерную карту смежности.
+
+Автоматически дублирует связь в обе стороны, обеспечивая неориентированность графа. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em from} & Идентификатор начального пункта \\
+\hline
+\doxymbox{\texttt{in}}  & {\em to} & Идентификатор конечного пункта \\
+\hline
+\doxymbox{\texttt{in}}  & {\em len} & Длина дороги \\
+\hline
+\doxymbox{\texttt{in}}  & {\em m\+Mass} & Лимит по массе \\
+\hline
+\doxymbox{\texttt{in}}  & {\em m\+Height} & Лимит по высоте \\
+\hline
+\end{DoxyParams}
+Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_graph_a68c2e3be2e830c2d9471087a079ca567_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_graph_a872006cb71f4ab9d56175f8eb4787ed9}\index{Graph@{Graph}!findShortestPath@{findShortestPath}}
+\index{findShortestPath@{findShortestPath}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findShortestPath()}{findShortestPath()}}
+{\footnotesize\ttfamily \label{class_graph_a872006cb71f4ab9d56175f8eb4787ed9} 
+\doxymbox{\hyperlink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status}} Graph::\+find\+Shortest\+Path (\begin{DoxyParamCaption}\item[{int}]{start\+Node}{, }\item[{int}]{end\+Node}{, }\item[{const \doxymbox{\hyperlink{struct_truck}{Truck}} \&}]{truck}{, }\item[{QList$<$ int $>$ \&}]{path}{, }\item[{double \&}]{total\+Len}{, }\item[{double \&}]{required\+Mass}{, }\item[{double \&}]{required\+Height}{}\end{DoxyParamCaption})}
+
+
+
+Главный метод высокоуровневого расчета оптимального маршрута 
+
+Высокоуровневая функция двухпроходного поиска маршрута.
+
+Реализует двухпроходную стратегию:\+ сначала ищет безопасный путь для грузовика. Если проезд заблокирован, ищет любой физический путь, чтобы выявить критические ограничения. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em start\+Node} & Номер пункта отправления \\
+\hline
+\doxymbox{\texttt{in}}  & {\em end\+Node} & Номер пункта назначения \\
+\hline
+\doxymbox{\texttt{in}}  & {\em truck} & Габариты транспортного средства \\
+\hline
+\doxymbox{\texttt{out}}  & {\em path} & Сформированный итоговый список пунктов маршрута \\
+\hline
+\doxymbox{\texttt{out}}  & {\em total\+Len} & Итоговая длина рассчитанного маршрута \\
+\hline
+\doxymbox{\texttt{out}}  & {\em required\+Mass} & Требуемая масса для проезда (заполняется при Route\+Impossible) \\
+\hline
+\doxymbox{\texttt{out}}  & {\em required\+Height} & Требуемая высота для проезда (заполняется при Route\+Impossible) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+\doxylink{datatypes_8h_a2502aed4307441828cacb3cf03def5de}{Route\+Status} Статус результата расчета (Path\+Found, No\+Route\+Exists или Route\+Impossible) 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Путь есть, но машина не проходит по габаритамГраф вызовов:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_graph_a872006cb71f4ab9d56175f8eb4787ed9_cgraph}
+\end{center}
+\end{figure}
+Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=274pt]{class_graph_a872006cb71f4ab9d56175f8eb4787ed9_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_graph_ad81fbd75acc3b6d396f08cde2fbfaadd}\index{Graph@{Graph}!getAdjacencyMap@{getAdjacencyMap}}
+\index{getAdjacencyMap@{getAdjacencyMap}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getAdjacencyMap()}{getAdjacencyMap()}}
+{\footnotesize\ttfamily \label{class_graph_ad81fbd75acc3b6d396f08cde2fbfaadd} 
+QMap$<$ int, QMap$<$ int, \doxymbox{\hyperlink{struct_edge}{Edge}} $>$ $>$ Graph::\+get\+Adjacency\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Геттер для получения копии списка смежности графа 
+
+\begin{DoxyReturn}{Возвращает}
+QMap$<$int, QMap$<$int, Edge$>$$>$ Двумерный словарь структуры дорог 
+\end{DoxyReturn}
+Граф вызова функции:\+
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_ad81fbd75acc3b6d396f08cde2fbfaadd_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_graph_a82de0064c51899131123628386c6ef87}\index{Graph@{Graph}!runDijkstra@{runDijkstra}}
+\index{runDijkstra@{runDijkstra}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{runDijkstra()}{runDijkstra()}}
+{\footnotesize\ttfamily \label{class_graph_a82de0064c51899131123628386c6ef87} 
+bool Graph::\+run\+Dijkstra (\begin{DoxyParamCaption}\item[{int}]{start\+Node}{, }\item[{int}]{end\+Node}{, }\item[{QList$<$ int $>$ \&}]{path}{, }\item[{double \&}]{total\+Len}{, }\item[{double \&}]{path\+Mass}{, }\item[{double \&}]{path\+Height}{, }\item[{const \doxymbox{\hyperlink{struct_truck}{Truck}} \texorpdfstring{$\ast$}{*}}]{truck}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Низкоуровневая реализация волнового алгоритма Дейкстры 
+
+Алгоритмическая реализация поиска кратчайшего пути (Алгоритм Дейкстры).
+
+Выполняет геометрический поиск пути. Может работать как с фильтрацией по габаритам автомобиля, так и в режиме чистого поиска (если truck == nullptr). 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em start\+Node} & Номер пункта отправления \\
+\hline
+\doxymbox{\texttt{in}}  & {\em end\+Node} & Номер пункта назначения \\
+\hline
+\doxymbox{\texttt{out}}  & {\em path} & Контейнер для записи последовательности узлов маршрута \\
+\hline
+\doxymbox{\texttt{out}}  & {\em total\+Len} & Переменная для записи суммарной протяженности пути \\
+\hline
+\doxymbox{\texttt{out}}  & {\em path\+Mass} & Переменная для фиксации минимального лимита массы на пути \\
+\hline
+\doxymbox{\texttt{out}}  & {\em path\+Height} & Переменная для фиксации минимального лимита высоты на пути \\
+\hline
+\doxymbox{\texttt{in}}  & {\em truck} & Указатель на параметры автомобиля (опционально) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Если путь между точками физически существует 
+
+false Если точки не связаны 
+\end{DoxyReturn}
+\texorpdfstring{$<$}{<} Таблица текущих кратчайших расстояний до вершин
+
+\texorpdfstring{$<$}{<} Таблица связей родительских узлов для восстановления пути
+
+\texorpdfstring{$<$}{<} Набор посещенных (зафиксированных) вершин графа
+
+\texorpdfstring{$<$}{<} Расстояние до стартовой точки равно нулю
+
+\texorpdfstring{$<$}{<} Управляющий флаг работы цикла (замена break)
+
+\texorpdfstring{$<$}{<} Выбранный узел с минимальной дистанцией
+
+\texorpdfstring{$<$}{<} Значение минимального расстояния
+
+\texorpdfstring{$<$}{<} Фиксируем узел как пройденный
+
+\texorpdfstring{$<$}{<} Флаг проходимости текущего ребра
+
+\texorpdfstring{$<$}{<} Автомобиль физически заблокирован лимитами дороги
+
+\texorpdfstring{$<$}{<} Запоминаем, что в узел v пришли из узла u
+
+\texorpdfstring{$<$}{<} Пути нет
+
+\texorpdfstring{$<$}{<} Добавляем узел в начало итогового списка
+
+\texorpdfstring{$<$}{<} Сдвигаемся назад к старту
+
+\texorpdfstring{$<$}{<} Запись итоговой протяженности маршрутаГраф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_graph_a82de0064c51899131123628386c6ef87_icgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_graph_doc-variable-members}
+\Hypertarget{class_graph_doc-variable-members}
+\doxysubsection{Данные класса}
+\Hypertarget{class_graph_a99430f91f89d4b917d8eda5662ff1fad}\index{Graph@{Graph}!adjacencyMap@{adjacencyMap}}
+\index{adjacencyMap@{adjacencyMap}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{adjacencyMap}{adjacencyMap}}
+{\footnotesize\ttfamily \label{class_graph_a99430f91f89d4b917d8eda5662ff1fad} 
+QMap$<$int, QMap$<$int, \doxymbox{\hyperlink{struct_edge}{Edge}}$>$ $>$ Graph::\+adjacency\+Map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Двумерный ассоциативный словарь смежности графа 
+
+Ключ первого уровня — исходный узел, ключ второго уровня — смежный узел. Значение — структура \doxylink{struct_edge}{Edge} с физическими ограничениями дороги. 
+
+Объявления и описания членов классов находятся в файлах:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{graph_8h}{graph.\+h}}\item 
+\doxymbox{\hyperlink{graph_8cpp}{graph.\+cpp}}\end{DoxyCompactItemize}

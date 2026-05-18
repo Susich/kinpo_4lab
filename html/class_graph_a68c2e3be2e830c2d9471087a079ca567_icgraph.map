@@ -1,0 +1,5 @@
+<map id="Graph::addEdge" name="Graph::addEdge">
+<area shape="rect" id="Node000001" title="Внутренний метод добавления ребра в структуру графа" alt="" coords="153,5,268,32"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#aa6ec1d0caa1b96afe7b5a6ff57c018ef" title="Конструктор графа, совмещенный с синтаксическим парсером DOT." alt="" coords="5,5,105,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="134,19,105,21,105,16,140,18"/>
+</map>

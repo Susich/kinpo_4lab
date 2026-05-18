@@ -1,0 +1,113 @@
+\doxysection{Структура Edge}
+\hypertarget{struct_edge}{}\label{struct_edge}\index{Edge@{Edge}}
+
+
+Структура, моделирующая участок дороги (ребро графа).  
+
+
+
+
+{\ttfamily \+\#include $<$datatypes.\+h$>$}
+
+
+
+Граф связей класса Edge:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{struct_edge__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{struct_edge_a3106b11d60125009dbf7a738ce540fdf}{Edge}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию (инициализирует поля нулями). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{struct_edge_a3d502a95b039750307ff6db54ace150d}{Edge}} (double l, double m, double h)
+\begin{DoxyCompactList}\small\item\em Инициализирующий конструктор ребра графа \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+double \doxymbox{\hyperlink{struct_edge_ae3ea80ea41b7a8072d456af9110dc6d5}{length}}
+\begin{DoxyCompactList}\small\item\em Геометрическая длина участка дороги (вес ребра графа). \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{struct_edge_ad4e6913857bea60ff1c3b633a06761a6}{max\+Mass}}
+\begin{DoxyCompactList}\small\item\em Предельно допустимая масса транспортного средства на участке (кг). \end{DoxyCompactList}\item 
+double \doxymbox{\hyperlink{struct_edge_a9fe0af6b00a51d5012f3010ab9a2163d}{max\+Height}}
+\begin{DoxyCompactList}\small\item\em Предельно допустимая высота транспортного средства на участке (см). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Структура, моделирующая участок дороги (ребро графа). 
+
+\label{struct_edge_doc-constructors}
+\Hypertarget{struct_edge_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{struct_edge_a3106b11d60125009dbf7a738ce540fdf}\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{struct_edge_a3106b11d60125009dbf7a738ce540fdf} 
+Edge::\+\+Edge (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор по умолчанию (инициализирует поля нулями). 
+
+\Hypertarget{struct_edge_a3d502a95b039750307ff6db54ace150d}\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{struct_edge_a3d502a95b039750307ff6db54ace150d} 
+Edge::\+\+Edge (\begin{DoxyParamCaption}\item[{double}]{l}{, }\item[{double}]{m}{, }\item[{double}]{h}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Инициализирующий конструктор ребра графа 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em l} & Длина участка \\
+\hline
+\doxymbox{\texttt{in}}  & {\em m} & Максимально допустимая масса \\
+\hline
+\doxymbox{\texttt{in}}  & {\em h} & Максимально допустимая высота \\
+\hline
+\end{DoxyParams}
+
+
+\label{struct_edge_doc-variable-members}
+\Hypertarget{struct_edge_doc-variable-members}
+\doxysubsection{Данные класса}
+\Hypertarget{struct_edge_ae3ea80ea41b7a8072d456af9110dc6d5}\index{Edge@{Edge}!length@{length}}
+\index{length@{length}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily \label{struct_edge_ae3ea80ea41b7a8072d456af9110dc6d5} 
+double Edge::\+length}
+
+
+
+Геометрическая длина участка дороги (вес ребра графа). 
+
+\Hypertarget{struct_edge_a9fe0af6b00a51d5012f3010ab9a2163d}\index{Edge@{Edge}!maxHeight@{maxHeight}}
+\index{maxHeight@{maxHeight}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{maxHeight}{maxHeight}}
+{\footnotesize\ttfamily \label{struct_edge_a9fe0af6b00a51d5012f3010ab9a2163d} 
+double Edge::\+max\+Height}
+
+
+
+Предельно допустимая высота транспортного средства на участке (см). 
+
+\Hypertarget{struct_edge_ad4e6913857bea60ff1c3b633a06761a6}\index{Edge@{Edge}!maxMass@{maxMass}}
+\index{maxMass@{maxMass}!Edge@{Edge}}
+\doxysubsubsection{\texorpdfstring{maxMass}{maxMass}}
+{\footnotesize\ttfamily \label{struct_edge_ad4e6913857bea60ff1c3b633a06761a6} 
+double Edge::\+max\+Mass}
+
+
+
+Предельно допустимая масса транспортного средства на участке (кг). 
+
+
+
+Объявления и описания членов структуры находятся в файле:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{datatypes_8h}{datatypes.\+h}}\end{DoxyCompactItemize}

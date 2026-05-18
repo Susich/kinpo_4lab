@@ -1,0 +1,162 @@
+\doxysection{Класс Error}
+\hypertarget{class_error}{}\label{class_error}\index{Error@{Error}}
+
+
+Класс для обработки, хранения и генерации сообщений об ошибках  
+
+
+
+
+{\ttfamily \+\#include $<$datatypes.\+h$>$}
+
+
+
+Граф связей класса Error:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{class_error__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{class_error_aca339d00ad8481fb4c184f0ece42698b}{Error}} ()
+\begin{DoxyCompactList}\small\item\em Конструктор по умолчанию (создает объект без ошибки). \end{DoxyCompactList}\item 
+\doxymbox{\hyperlink{class_error_aaf0ca3eee7ff625b2d63f80c4a6de029}{Error}} (\doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}{Error\+Type}} t, const QString \&detail)
+\begin{DoxyCompactList}\small\item\em Инициализирующий конструктор ошибки \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{class_error_a1e9308e86007eef5a656c7701c21ee15}{generate\+Error\+Message}} () const
+\begin{DoxyCompactList}\small\item\em Формирует и возвращает итоговую строку сообщения об ошибке \end{DoxyCompactList}\item 
+bool \doxymbox{\hyperlink{class_error_a363c3533442e5197214d343effd98e10}{operator==}} (const \doxymbox{\hyperlink{class_error}{Error}} \&other) const
+\begin{DoxyCompactList}\small\item\em Оператор проверки равенства двух объектов ошибок \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Открытые атрибуты}
+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}{Error\+Type}} \doxymbox{\hyperlink{class_error_a4d9ef9fdc894088985e42ccda181ece7}{type}}
+\begin{DoxyCompactList}\small\item\em Категория (тип) возникшей ошибки \end{DoxyCompactList}\item 
+QString \doxymbox{\hyperlink{class_error_ab1278c60b857956b117baacc04b320d9}{error\+Detail}}
+\begin{DoxyCompactList}\small\item\em Конкретизированный текст ошибки с деталями \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Подробное описание}
+Класс для обработки, хранения и генерации сообщений об ошибках 
+
+\label{class_error_doc-constructors}
+\Hypertarget{class_error_doc-constructors}
+\doxysubsection{Конструктор(ы)}
+\Hypertarget{class_error_aca339d00ad8481fb4c184f0ece42698b}\index{Error@{Error}!Error@{Error}}
+\index{Error@{Error}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{Error()}{Error()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{class_error_aca339d00ad8481fb4c184f0ece42698b} 
+Error::\+\+Error (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Конструктор по умолчанию (создает объект без ошибки). 
+
+Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_error_aca339d00ad8481fb4c184f0ece42698b_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_error_aaf0ca3eee7ff625b2d63f80c4a6de029}\index{Error@{Error}!Error@{Error}}
+\index{Error@{Error}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{Error()}{Error()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{class_error_aaf0ca3eee7ff625b2d63f80c4a6de029} 
+Error::\+\+Error (\begin{DoxyParamCaption}\item[{\doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}{Error\+Type}}}]{t}{, }\item[{const QString \&}]{detail}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Инициализирующий конструктор ошибки 
+
+
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em t} & Тип регистрируемой ошибки \\
+\hline
+\doxymbox{\texttt{in}}  & {\em detail} & Подробное текстовое описание причины сбоя \\
+\hline
+\end{DoxyParams}
+
+
+\label{class_error_doc-func-members}
+\Hypertarget{class_error_doc-func-members}
+\doxysubsection{Методы}
+\Hypertarget{class_error_a1e9308e86007eef5a656c7701c21ee15}\index{Error@{Error}!generateErrorMessage@{generateErrorMessage}}
+\index{generateErrorMessage@{generateErrorMessage}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{generateErrorMessage()}{generateErrorMessage()}}
+{\footnotesize\ttfamily \label{class_error_a1e9308e86007eef5a656c7701c21ee15} 
+QString Error::\+generate\+Error\+Message (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Формирует и возвращает итоговую строку сообщения об ошибке 
+
+\begin{DoxyReturn}{Возвращает}
+QString Текст ошибки для вывода в поток std::\+cerr 
+\end{DoxyReturn}
+Граф вызова функции:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=294pt]{class_error_a1e9308e86007eef5a656c7701c21ee15_icgraph}
+\end{center}
+\end{figure}
+\Hypertarget{class_error_a363c3533442e5197214d343effd98e10}\index{Error@{Error}!operator==@{operator==}}
+\index{operator==@{operator==}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}}
+{\footnotesize\ttfamily \label{class_error_a363c3533442e5197214d343effd98e10} 
+bool Error::\+operator== (\begin{DoxyParamCaption}\item[{const \doxymbox{\hyperlink{class_error}{Error}} \&}]{other}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Оператор проверки равенства двух объектов ошибок 
+
+Необходим для корректного поиска дубликатов внутри контейнера QSet. 
+\begin{DoxyParams}[1]{Аргументы}
+\doxymbox{\texttt{in}}  & {\em other} & Сравниваемый объект ошибки \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true Если типы и детали ошибок полностью совпадают 
+
+false В противном случае 
+\end{DoxyReturn}
+Граф вызовов:\+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=270pt]{class_error_a363c3533442e5197214d343effd98e10_cgraph}
+\end{center}
+\end{figure}
+
+
+\label{class_error_doc-variable-members}
+\Hypertarget{class_error_doc-variable-members}
+\doxysubsection{Данные класса}
+\Hypertarget{class_error_ab1278c60b857956b117baacc04b320d9}\index{Error@{Error}!errorDetail@{errorDetail}}
+\index{errorDetail@{errorDetail}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{errorDetail}{errorDetail}}
+{\footnotesize\ttfamily \label{class_error_ab1278c60b857956b117baacc04b320d9} 
+QString Error::\+error\+Detail}
+
+
+
+Конкретизированный текст ошибки с деталями 
+
+\Hypertarget{class_error_a4d9ef9fdc894088985e42ccda181ece7}\index{Error@{Error}!type@{type}}
+\index{type@{type}!Error@{Error}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{class_error_a4d9ef9fdc894088985e42ccda181ece7} 
+\doxymbox{\hyperlink{datatypes_8h_ab0df38968e4f03a3f1f6d6df0f31f45a}{Error\+Type}} Error::\+type}
+
+
+
+Категория (тип) возникшей ошибки 
+
+
+
+Объявления и описания членов класса находятся в файле:\+\begin{DoxyCompactItemize}
+\item 
+\doxymbox{\hyperlink{datatypes_8h}{datatypes.\+h}}\end{DoxyCompactItemize}
