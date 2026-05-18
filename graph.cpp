@@ -14,8 +14,6 @@
 
 /**
  * @brief Конструктор графа, совмещенный с синтаксическим парсером DOT.
- * @details Метод выполняет синтаксический разбор входного текста, проверяет структуру графа,
- * выделяет параметры каждого ребра, валидирует их типы и диапазоны.
  */
 Graph::Graph(const QString& dotContent, QSet<Error>& errors) {
     // Проверка обязательного заголовка для неориентированного графа
@@ -23,28 +21,24 @@ Graph::Graph(const QString& dotContent, QSet<Error>& errors) {
         errors.insert(Error(ErrorType::DotSyntaxError, "Ошибка: файл должен начинаться со слова «graph»."));
     }
 
-    // Регулярное выражение для поиска строк описания ребер вида: u -- v [length=X, max_mass=Y, max_height=Z];
+    // Регулярное выражение для поиска строк описания ребер
     QRegularExpression edgeRegex("(\\d+)\\s*--\\s*(\\d+)\\s*\\[([^\\]]+)\\]");
     QRegularExpressionMatchIterator it = edgeRegex.globalMatch(dotContent);
 
-    // Цикл обхода всех найденных регулярным выражением ребер графа
+    // Цикл обхода всех найденных ребер
     while (it.hasNext()) {
         QRegularExpressionMatch match = it.next();
-        int u = match.captured(1).toInt();          ///< Идентификатор первой вершины (пункта)
-        int v = match.captured(2).toInt();          ///< Идентификатор второй вершины (пункта)
-        QString attrsStr = match.captured(3);       ///< Строка содержащая только список атрибутов ребра
+        int u = match.captured(1).toInt();
+        int v = match.captured(2).toInt();
+        QString attrsStr = match.captured(3);
 
-        // Инициализация временных переменных для хранения параметров дороги
         double length = -1, maxMass = -1, maxHeight = -1;
-        QStringList attrs = attrsStr.split(',');     ///< Разделение строки атрибутов по запятым
+        QStringList attrs = attrsStr.split(',');
 
-        // Флаги успешности обнаружения и парсинга каждого обязательного параметра
         bool hasLen = false, hasMass = false, hasHeight = false;
 
-        // Построчный разбор изолированных пар "атрибут=значение"
         for (int i = 0; i < attrs.size(); ++i) {
-            QString attr = attrs[i].trimmed(); ///< Очистка от пробелов по краям
-
+            QString attr = attrs[i].trimmed();
             if (attr.startsWith("length=")) {
                 length = attr.mid(7).toDouble(&hasLen);
             } else if (attr.startsWith("max_mass=")) {
@@ -54,23 +48,31 @@ Graph::Graph(const QString& dotContent, QSet<Error>& errors) {
             }
         }
 
-        // Блок контроля наличия обязательных параметров (Таблица 1 спецификации)
-        if (!hasLen) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «length».").arg(u).arg(v)));
-        if (!hasMass) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «max_mass».").arg(u).arg(v)));
-        if (!hasHeight) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «max_height».").arg(u).arg(v)));
+        // Блок 1: Контроль наличия и формата обязательных параметров
+        if (!hasLen) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «length» или это не число.").arg(u).arg(v)));
+        if (!hasMass) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «max_mass» или это не число.").arg(u).arg(v)));
+        if (!hasHeight) errors.insert(Error(ErrorType::DotSyntaxError, QString("Ошибка на участке %1--%2: пропущен обязательный атрибут «max_height» или это не число.").arg(u).arg(v)));
 
-        // Контроль логического диапазона длины участка дороги (1 - 100 км)
+        // Блок 2: Контроль логического диапазона физических лимитов
         if (hasLen && (length < 1 || length > 100)) {
             errors.insert(Error(ErrorType::OutOfRange, QString("Ошибка на участке %1--%2: длина дороги выходит за рамки лимита (1 - 100).").arg(u).arg(v)));
         }
+        if (hasMass && (maxMass < 0 || maxMass > 100000)) {
+            errors.insert(Error(ErrorType::OutOfRange, QString("Ошибка на участке %1--%2: лимит массы вне диапазона (0 - 100000).").arg(u).arg(v)));
+        }
+        if (hasHeight && (maxHeight < 0 || maxHeight > 1000)) {
+            errors.insert(Error(ErrorType::OutOfRange, QString("Ошибка на участке %1--%2: лимит высоты вне диапазона (0 - 1000).").arg(u).arg(v)));
+        }
 
-        // Добавление ребра, если оно валидно и не является петлей (u != v)
-        if (u != v && hasLen && hasMass && hasHeight && length >= 1 && length <= 100) {
+        // Блок 3: Добавление ребра (если все параметры на месте и в пределах лимитов)
+        if (u != v && hasLen && hasMass && hasHeight &&
+            length >= 1 && length <= 100 &&
+            maxMass >= 0 && maxMass <= 100000 &&
+            maxHeight >= 0 && maxHeight <= 1000) {
             addEdge(u, v, length, maxMass, maxHeight);
         }
     }
 }
-
 /**
  * @brief Метод занесения ребра в двумерную карту смежности.
  */

@@ -180,16 +180,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('class_graph.ht
 <p>Читает текст DOT-файла, проверяет его на валидность и заполняет граф. </p><dl class="params"><dt>Аргументы</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dotContent</td><td>Строка с сырым текстовым содержимым DOT-файла </td></tr>
-    <tr><td class="paramdir">[out]</td><td class="paramname">errors</td><td>Множество для аккумулирования найденных синтаксических ошибок</td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">errors</td><td>Множество для аккумулирования найденных синтаксических ошибок </td></tr>
   </table>
   </dd>
 </dl>
-<p>Метод выполняет синтаксический разбор входного текста, проверяет структуру графа, выделяет параметры каждого ребра, валидирует их типы и диапазоны. </p>
-<p>&lt; Идентификатор первой вершины (пункта)</p>
-<p>&lt; Идентификатор второй вершины (пункта)</p>
-<p>&lt; Строка содержащая только список атрибутов ребра</p>
-<p>&lt; Разделение строки атрибутов по запятым</p>
-<p>&lt; Очистка от пробелов по краям</p>
 <div class="dynheader">
 Граф вызовов:</div>
 <div class="dyncontent">

@@ -63,18 +63,10 @@ Graph::\+\+Graph (\begin{DoxyParamCaption}\item[{const QString \&}]{dot\+Content
 \begin{DoxyParams}[1]{Аргументы}
 \doxymbox{\texttt{in}}  & {\em dot\+Content} & Строка с сырым текстовым содержимым DOT-\/файла \\
 \hline
-\doxymbox{\texttt{out}}  & {\em errors} & Множество для аккумулирования найденных синтаксических ошибок\\
+\doxymbox{\texttt{out}}  & {\em errors} & Множество для аккумулирования найденных синтаксических ошибок \\
 \hline
 \end{DoxyParams}
-Метод выполняет синтаксический разбор входного текста, проверяет структуру графа, выделяет параметры каждого ребра, валидирует их типы и диапазоны. \texorpdfstring{$<$}{<} Идентификатор первой вершины (пункта)
-
-\texorpdfstring{$<$}{<} Идентификатор второй вершины (пункта)
-
-\texorpdfstring{$<$}{<} Строка содержащая только список атрибутов ребра
-
-\texorpdfstring{$<$}{<} Разделение строки атрибутов по запятым
-
-\texorpdfstring{$<$}{<} Очистка от пробелов по краямГраф вызовов:\+\nopagebreak
+Граф вызовов:\+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -177,8 +169,7 @@ QMap$<$ int, QMap$<$ int, \doxymbox{\hyperlink{struct_edge}{Edge}} $>$ $>$ Graph
 \begin{DoxyReturn}{Возвращает}
 QMap$<$int, QMap$<$int, Edge$>$$>$ Двумерный словарь структуры дорог 
 \end{DoxyReturn}
-Граф вызова функции:\+
-\nopagebreak
+Граф вызова функции:\+\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
