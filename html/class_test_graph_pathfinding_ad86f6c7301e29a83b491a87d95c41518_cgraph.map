@@ -1,0 +1,7 @@
+<map id="TestGraphPathfinding::testFindPath_6_OptimalChoice" name="TestGraphPathfinding::testFindPath_6_OptimalChoice">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,216,48"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title="Главный метод высокоуровневого расчета оптимального маршрута" alt="" coords="264,13,425,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="216,24,251,27,245,27,216,29"/>
+<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title="Низкоуровневая реализация волнового алгоритма Дейкстры" alt="" coords="473,13,600,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="425,24,460,27,455,27,426,29"/>
+</map>

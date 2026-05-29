@@ -1,5 +1,30 @@
 var searchData=
 [
-  ['truck_0',['Truck',['../struct_truck.html',1,'']]],
-  ['type_1',['type',['../class_error.html#a4d9ef9fdc894088985e42ccda181ece7',1,'Error']]]
+  ['test_5fmain_2ecpp_0',['test_main.cpp',['../test__main_8cpp.html',1,'']]],
+  ['testdijkstra_5f1_5fcleansearchnolimits_1',['testDijkstra_1_CleanSearchNoLimits',['../class_test_graph_pathfinding.html#ad06cf0e50a8cc18666ee98a2d771700a',1,'TestGraphPathfinding']]],
+  ['testdijkstra_5f3_5ftrap_2',['testDijkstra_3_Trap',['../class_test_graph_pathfinding.html#ae161426ae5c0dbb97f1ff60d0e50ac44',1,'TestGraphPathfinding']]],
+  ['testdijkstra_5f4_5ftotalblock_3',['testDijkstra_4_TotalBlock',['../class_test_graph_pathfinding.html#a5790986e9ce83d1cd46a3d04be7fa62e',1,'TestGraphPathfinding']]],
+  ['testdijkstra_5f5_5fisolation_4',['testDijkstra_5_Isolation',['../class_test_graph_pathfinding.html#a1fbdadbd84c1fc653db3c99ed3194211',1,'TestGraphPathfinding']]],
+  ['testdijkstra_5f6_5fstartequalsend_5',['testDijkstra_6_StartEqualsEnd',['../class_test_graph_pathfinding.html#a7bd79e7f3fa87a99b671fcfa044432a7',1,'TestGraphPathfinding']]],
+  ['testdijkstra_5f8_5fcomplexgraph_6',['testDijkstra_8_ComplexGraph',['../class_test_graph_pathfinding.html#a8cbae818a39365fcc84a843033e04652',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f1_5fdirect_7',['testFindPath_1_Direct',['../class_test_graph_pathfinding.html#a9c7f7e0736d95f6e6f60f460ae5f83a0',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f2_5fmassblocked_8',['testFindPath_2_MassBlocked',['../class_test_graph_pathfinding.html#a3f61ac7ad6a0617288ce85ffdb22fcca',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f3_5fheightblocked_9',['testFindPath_3_HeightBlocked',['../class_test_graph_pathfinding.html#a96c7d459acebcd4b6a9161e105ca0f20',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f4_5fbypass_10',['testFindPath_4_Bypass',['../class_test_graph_pathfinding.html#ac4f25697deb3d8c6e400e0d5e1345597',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f5_5fnoconnection_11',['testFindPath_5_NoConnection',['../class_test_graph_pathfinding.html#a65f42a4409c21f622172d23de06ab5bc',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f6_5foptimalchoice_12',['testFindPath_6_OptimalChoice',['../class_test_graph_pathfinding.html#ad86f6c7301e29a83b491a87d95c41518',1,'TestGraphPathfinding']]],
+  ['testfindpath_5f7_5fequalpaths_13',['testFindPath_7_EqualPaths',['../class_test_graph_pathfinding.html#a120ac4e4c21468d29d89e64f13e80978',1,'TestGraphPathfinding']]],
+  ['testgraphconstructor_5f1_5fsuccess_14',['testGraphConstructor_1_Success',['../class_test_graph_pathfinding.html#a3226505bfe541386d8b2a47b77e43179',1,'TestGraphPathfinding']]],
+  ['testgraphconstructor_5f2_5fmultipleerrors_15',['testGraphConstructor_2_MultipleErrors',['../class_test_graph_pathfinding.html#a3d9b97d9e09335f9a7ac2fcf391ddd96',1,'TestGraphPathfinding']]],
+  ['testgraphconstructor_5f3_5fnegativelimits_16',['testGraphConstructor_3_NegativeLimits',['../class_test_graph_pathfinding.html#aedf5bc86193d54929aa71805123a5731',1,'TestGraphPathfinding']]],
+  ['testgraphconstructor_5f4_5fignoreloops_17',['testGraphConstructor_4_IgnoreLoops',['../class_test_graph_pathfinding.html#a82766700880c7f4f42192472d4856f74',1,'TestGraphPathfinding']]],
+  ['testgraphconstructor_5f5_5fmissingparam_18',['testGraphConstructor_5_MissingParam',['../class_test_graph_pathfinding.html#a85aea2d720c18ea36f6338da83eb9f9a',1,'TestGraphPathfinding']]],
+  ['testgraphconstructor_5f6_5ftextinsteadofnumber_19',['testGraphConstructor_6_TextInsteadOfNumber',['../class_test_graph_pathfinding.html#a8ebf04b45e4090373e88eac9344095aa',1,'TestGraphPathfinding']]],
+  ['testgraphpathfinding_20',['TestGraphPathfinding',['../class_test_graph_pathfinding.html',1,'']]],
+  ['testparsetruckdata_5f1_5fsuccess_21',['testParseTruckData_1_Success',['../class_test_graph_pathfinding.html#a61adcf45cee1a49280e8b323e97393e6',1,'TestGraphPathfinding']]],
+  ['testparsetruckdata_5f2_5fletters_22',['testParseTruckData_2_Letters',['../class_test_graph_pathfinding.html#a248654415c2d4d3375f6169008de9883',1,'TestGraphPathfinding']]],
+  ['testparsetruckdata_5f3_5fmissing_23',['testParseTruckData_3_Missing',['../class_test_graph_pathfinding.html#a6ea43dae21d79026c77d717c4a2ad1f5',1,'TestGraphPathfinding']]],
+  ['testparsetruckdata_5f4_5fempty_24',['testParseTruckData_4_Empty',['../class_test_graph_pathfinding.html#a817ef978d2f424d335ae226c20384a21',1,'TestGraphPathfinding']]],
+  ['truck_25',['Truck',['../struct_truck.html',1,'']]],
+  ['type_26',['type',['../class_error.html#a4d9ef9fdc894088985e42ccda181ece7',1,'Error']]]
 ];

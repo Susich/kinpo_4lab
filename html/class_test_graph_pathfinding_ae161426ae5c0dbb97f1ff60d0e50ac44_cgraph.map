@@ -1,7 +1,7 @@
 <map id="TestGraphPathfinding::testDijkstra_3_Trap" name="TestGraphPathfinding::testDijkstra_3_Trap">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,152,48"/>
-<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title=" " alt="" coords="200,13,361,40"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title="Главный метод высокоуровневого расчета оптимального маршрута" alt="" coords="200,13,361,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,24,187,26,181,27,152,29"/>
-<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title=" " alt="" coords="409,13,536,40"/>
+<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title="Низкоуровневая реализация волнового алгоритма Дейкстры" alt="" coords="409,13,536,40"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="361,24,396,27,391,27,362,29"/>
 </map>

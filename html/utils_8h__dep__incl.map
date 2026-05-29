@@ -1,7 +1,9 @@
 <map id="utils.h" name="utils.h">
-<area shape="rect" id="Node000001" title="Декларация утилитных функций ввода&#45;вывода, парсинга и генерации отчетов." alt="" coords="62,5,119,32"/>
+<area shape="rect" id="Node000001" title="Декларация утилитных функций ввода&#45;вывода, парсинга и генерации отчетов." alt="" coords="128,5,184,32"/>
 <area shape="rect" id="Node000002" href="$main_8cpp.html" title="Главный файл программы согласно Внутренней спецификации." alt="" coords="5,80,80,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,44,53,81,49,78,71,46"/>
-<area shape="rect" id="Node000003" href="$utils_8cpp.html" title="Реализация вспомогательных функций ввода&#45;вывода и генерации отчетов." alt="" coords="103,80,174,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="109,43,133,80,128,79,106,47"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="125,42,64,82,61,77,121,39"/>
+<area shape="rect" id="Node000003" href="$test__main_8cpp.html" title="Полный набор модульных тестов согласно Программе и методике испытаний (Таблицы 1&#45;4)." alt="" coords="104,80,208,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,46,158,81,154,78,154,50"/>
+<area shape="rect" id="Node000004" href="$utils_8cpp.html" title="Реализация вспомогательных функций ввода&#45;вывода и генерации отчетов." alt="" coords="231,80,302,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="188,38,250,79,244,80,187,43"/>
 </map>

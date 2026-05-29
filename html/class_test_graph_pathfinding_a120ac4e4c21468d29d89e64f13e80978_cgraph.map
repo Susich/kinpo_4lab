@@ -1,0 +1,7 @@
+<map id="TestGraphPathfinding::testFindPath_7_EqualPaths" name="TestGraphPathfinding::testFindPath_7_EqualPaths">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,197,48"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title="Главный метод высокоуровневого расчета оптимального маршрута" alt="" coords="245,13,406,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="197,24,232,26,226,27,197,29"/>
+<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title="Низкоуровневая реализация волнового алгоритма Дейкстры" alt="" coords="454,13,581,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="406,24,441,27,436,27,407,29"/>
+</map>

@@ -1,7 +1,7 @@
 <map id="TestGraphPathfinding::testFindPath_4_Bypass" name="TestGraphPathfinding::testFindPath_4_Bypass">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,5,174,48"/>
-<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title=" " alt="" coords="222,13,383,40"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title="Главный метод высокоуровневого расчета оптимального маршрута" alt="" coords="222,13,383,40"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="174,24,209,26,204,27,174,29"/>
-<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title=" " alt="" coords="431,13,558,40"/>
+<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title="Низкоуровневая реализация волнового алгоритма Дейкстры" alt="" coords="431,13,558,40"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="383,24,418,27,413,27,384,29"/>
 </map>

@@ -1,0 +1,5 @@
+<map id="TestGraphPathfinding::testGraphConstructor_4_IgnoreLoops" name="TestGraphPathfinding::testGraphConstructor_4_IgnoreLoops">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,160,64"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#ad81fbd75acc3b6d396f08cde2fbfaadd" title="Геттер для получения копии списка смежности графа" alt="" coords="208,21,376,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,32,195,34,189,35,160,37"/>
+</map>

@@ -1,9 +1,11 @@
 <map id="graph.h" name="graph.h">
-<area shape="rect" id="Node000001" title="Интерфейс класса Graph для управления дорожной сетью." alt="" coords="112,5,177,32"/>
+<area shape="rect" id="Node000001" title="Интерфейс класса Graph для управления дорожной сетью." alt="" coords="168,5,233,32"/>
 <area shape="rect" id="Node000002" href="$graph_8cpp.html" title="Реализация методов класса Graph для управления дорожной сетью." alt="" coords="5,80,84,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="117,42,64,82,61,77,112,41"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="161,41,73,82,71,77,158,36"/>
 <area shape="rect" id="Node000003" href="$main_8cpp.html" title="Главный файл программы согласно Внутренней спецификации." alt="" coords="107,80,182,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="146,46,147,81,142,78,143,50"/>
-<area shape="rect" id="Node000004" href="$utils_8cpp.html" title="Реализация вспомогательных функций ввода&#45;вывода и генерации отчетов." alt="" coords="205,80,276,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,39,227,79,221,80,172,44"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="184,43,156,82,152,78,179,45"/>
+<area shape="rect" id="Node000004" href="$test__main_8cpp.html" title="Полный набор модульных тестов согласно Программе и методике испытаний (Таблицы 1&#45;4)." alt="" coords="206,80,310,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="221,42,251,80,245,79,219,47"/>
+<area shape="rect" id="Node000005" href="$utils_8cpp.html" title="Реализация вспомогательных функций ввода&#45;вывода и генерации отчетов." alt="" coords="333,80,404,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="244,36,342,79,336,80,243,41"/>
 </map>

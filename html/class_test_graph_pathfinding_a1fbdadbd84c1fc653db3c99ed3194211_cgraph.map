@@ -1,0 +1,7 @@
+<map id="TestGraphPathfinding::testDijkstra_5_Isolation" name="TestGraphPathfinding::testDijkstra_5_Isolation">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,172,48"/>
+<area shape="rect" id="Node000002" href="$class_graph.html#a872006cb71f4ab9d56175f8eb4787ed9" title="Главный метод высокоуровневого расчета оптимального маршрута" alt="" coords="220,13,381,40"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="172,24,207,26,201,27,172,29"/>
+<area shape="rect" id="Node000003" href="$class_graph.html#a82de0064c51899131123628386c6ef87" title="Низкоуровневая реализация волнового алгоритма Дейкстры" alt="" coords="429,13,556,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="381,24,416,27,411,27,382,29"/>
+</map>
